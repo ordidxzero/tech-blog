@@ -17,6 +17,4 @@ const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
   );
 });
 
-PostTemplate.displayName = 'PostTemplate';
-
 export default PostTemplate;

@@ -2221,6 +2221,25 @@ export type SiteFieldsEnum =
   | 'siteMetadata___title'
   | 'siteMetadata___description'
   | 'siteMetadata___author'
+  | 'siteMetadata___introduction'
+  | 'siteMetadata___siteUrl'
+  | 'siteMetadata___social___twitter'
+  | 'siteMetadata___social___github'
+  | 'siteMetadata___social___medium'
+  | 'siteMetadata___social___facebook'
+  | 'siteMetadata___icon'
+  | 'siteMetadata___thumbnail'
+  | 'siteMetadata___resume___title'
+  | 'siteMetadata___resume___description'
+  | 'siteMetadata___resume___thumbnail'
+  | 'siteMetadata___keywords'
+  | 'siteMetadata___comment___disqusShortName'
+  | 'siteMetadata___comment___utterances'
+  | 'siteMetadata___configs___countOfInitialPost'
+  | 'siteMetadata___sponsor___buyMeACoffeeId'
+  | 'siteMetadata___share___facebookAppId'
+  | 'siteMetadata___ga'
+  | 'siteMetadata___sentryDsn'
   | 'port'
   | 'host'
   | 'polyfill'
@@ -2948,12 +2967,104 @@ export type SiteSiteMetadata = {
   title?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   author?: Maybe<Scalars['String']>;
+  introduction?: Maybe<Scalars['String']>;
+  siteUrl?: Maybe<Scalars['String']>;
+  social?: Maybe<SiteSiteMetadataSocial>;
+  icon?: Maybe<Scalars['String']>;
+  thumbnail?: Maybe<Scalars['String']>;
+  resume?: Maybe<SiteSiteMetadataResume>;
+  keywords?: Maybe<Array<Maybe<Scalars['String']>>>;
+  comment?: Maybe<SiteSiteMetadataComment>;
+  configs?: Maybe<SiteSiteMetadataConfigs>;
+  sponsor?: Maybe<SiteSiteMetadataSponsor>;
+  share?: Maybe<SiteSiteMetadataShare>;
+  ga?: Maybe<Scalars['String']>;
+  sentryDsn?: Maybe<Scalars['String']>;
+};
+
+export type SiteSiteMetadataComment = {
+  __typename?: 'SiteSiteMetadataComment';
+  disqusShortName?: Maybe<Scalars['String']>;
+  utterances?: Maybe<Scalars['String']>;
+};
+
+export type SiteSiteMetadataCommentFilterInput = {
+  disqusShortName?: Maybe<StringQueryOperatorInput>;
+  utterances?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SiteSiteMetadataConfigs = {
+  __typename?: 'SiteSiteMetadataConfigs';
+  countOfInitialPost?: Maybe<Scalars['Int']>;
+};
+
+export type SiteSiteMetadataConfigsFilterInput = {
+  countOfInitialPost?: Maybe<IntQueryOperatorInput>;
 };
 
 export type SiteSiteMetadataFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
   author?: Maybe<StringQueryOperatorInput>;
+  introduction?: Maybe<StringQueryOperatorInput>;
+  siteUrl?: Maybe<StringQueryOperatorInput>;
+  social?: Maybe<SiteSiteMetadataSocialFilterInput>;
+  icon?: Maybe<StringQueryOperatorInput>;
+  thumbnail?: Maybe<StringQueryOperatorInput>;
+  resume?: Maybe<SiteSiteMetadataResumeFilterInput>;
+  keywords?: Maybe<StringQueryOperatorInput>;
+  comment?: Maybe<SiteSiteMetadataCommentFilterInput>;
+  configs?: Maybe<SiteSiteMetadataConfigsFilterInput>;
+  sponsor?: Maybe<SiteSiteMetadataSponsorFilterInput>;
+  share?: Maybe<SiteSiteMetadataShareFilterInput>;
+  ga?: Maybe<StringQueryOperatorInput>;
+  sentryDsn?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SiteSiteMetadataResume = {
+  __typename?: 'SiteSiteMetadataResume';
+  title?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  thumbnail?: Maybe<Scalars['String']>;
+};
+
+export type SiteSiteMetadataResumeFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
+  thumbnail?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SiteSiteMetadataShare = {
+  __typename?: 'SiteSiteMetadataShare';
+  facebookAppId?: Maybe<Scalars['String']>;
+};
+
+export type SiteSiteMetadataShareFilterInput = {
+  facebookAppId?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SiteSiteMetadataSocial = {
+  __typename?: 'SiteSiteMetadataSocial';
+  twitter?: Maybe<Scalars['String']>;
+  github?: Maybe<Scalars['String']>;
+  medium?: Maybe<Scalars['String']>;
+  facebook?: Maybe<Scalars['String']>;
+};
+
+export type SiteSiteMetadataSocialFilterInput = {
+  twitter?: Maybe<StringQueryOperatorInput>;
+  github?: Maybe<StringQueryOperatorInput>;
+  medium?: Maybe<StringQueryOperatorInput>;
+  facebook?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SiteSiteMetadataSponsor = {
+  __typename?: 'SiteSiteMetadataSponsor';
+  buyMeACoffeeId?: Maybe<Scalars['String']>;
+};
+
+export type SiteSiteMetadataSponsorFilterInput = {
+  buyMeACoffeeId?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SiteSortInput = {

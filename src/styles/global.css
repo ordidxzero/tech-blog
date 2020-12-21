@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#gatsby-focus-wrapper {
+  @apply flex flex-col justify-start items-center;
+}
+
+.base-container {
+  @apply w-full h-full px-4 sm:w-full-8 sm:px-0 2xl:w-344 3xl:w-432;
+}
+
+.index-box {
+  @apply rounded-md shadow-sm bg-white shadow-lg;
+}

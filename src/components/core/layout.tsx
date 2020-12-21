@@ -8,10 +8,9 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import '../styles/layout.css';
+import '../../styles/layout.css';
 
 import Header from './header';
-import Footer from './footer';
 
 type LayoutProps = {
   children: React.ReactNode;

@@ -13,3 +13,7 @@
 .index-box {
   @apply rounded-md shadow-sm bg-white shadow-lg;
 }
+
+.category {
+  @apply border hover:bg-green-400 w-full h-full flex justify-center items-center rounded-md cursor-pointer select-none capitalize duration-150;
+}

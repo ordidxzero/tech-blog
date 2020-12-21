@@ -1,6 +1,6 @@
 import { CreatePagesArgs } from 'gatsby';
 import path from 'path';
-import { Query } from '../../@types/graphql-types';
+import { Query } from '../@types/graphql-types';
 
 export async function createPages({ actions, graphql }: CreatePagesArgs) {
   const { createPage } = actions;

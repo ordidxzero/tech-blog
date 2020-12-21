@@ -30,7 +30,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-generate-typings`,
       options: {
-        dest: `./@types/graphql-types.d.ts`,
+        dest: `./src/@types/graphql-types.d.ts`,
       },
     },
     `gatsby-plugin-postcss`,

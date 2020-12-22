@@ -36,6 +36,7 @@ const edgeStyle: cytoscape.Stylesheet = {
 const cytoscapeLayout = {
   name: 'cose-bilkent',
   animate: false,
+  tile: false,
   gravityRangeCompound: 1.2,
 };
 
@@ -45,7 +46,7 @@ function useCytoscape() {
   const cytoscapeRef = useRef(null);
 
   const [filter] = useContextState('filter');
-  const [_, setPost] = useContextState('category');
+  const [category] = useContextState('category');
 
   // Window에 resize이벤트가 발생할 때 마다 cytoscape의 위치를 가운데로 조정하는 이벤트 핸들러
   const resizeHandler = useCallback((instance?: cytoscape.Core) => {
@@ -100,9 +101,8 @@ function useCytoscape() {
 
     // Cytoscape Configuration
     // Configuration Method Reference : https://js.cytoscape.org/#core/viewport-manipulation
-    instance.current.zoom(1);
-    instance.current.minZoom(1);
     instance.current.maxZoom(3);
+    instance.current.fit();
     instance.current.center();
 
     // Cytoscape Event Listener
@@ -111,10 +111,8 @@ function useCytoscape() {
 
     instance.current.on('mouseout', 'node', mouseoutHandler);
 
-    instance.current.on('tapend', 'node', e => {
-      const label = e.target.data('label');
-      console.log(e.target);
-      setPost(label);
+    instance.current.on('click', 'node', e => {
+      const path = e.target.data('id');
       navigate('/page-2');
       window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
     });
@@ -125,6 +123,18 @@ function useCytoscape() {
       window.removeEventListener('resize', () => resizeHandler(instance.current));
     };
   }, []);
+
+  useEffect(() => {
+    if (instance.current) {
+      // Category가 적용됐을 때, data를 필터링한다.
+      const elements = instance.current.elements().filter(el => el.hidden());
+      elements.style('display', 'element');
+      if (category !== 'overview') {
+        const elements = instance.current.filter(`node[category != "${category}"]`);
+        elements.style('display', 'none');
+      }
+    }
+  }, [category]);
 
   useEffect(() => {
     if (instance.current) {

@@ -11,7 +11,7 @@ const Filter: React.FC = () => {
       <div className="mb-2">Category</div>
       <ul className="w-full m-0 grid grid-cols-2 place-items-center gap-2 px-2">
         {categories.map(category => (
-          <li className={`category ${isActive(category)}`} onClick={() => setCategory(category)}>
+          <li key={category} className={`category ${isActive(category)}`} onClick={() => setCategory(category)}>
             {category}
           </li>
         ))}

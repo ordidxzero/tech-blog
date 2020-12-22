@@ -14,7 +14,7 @@ const generateCytoscapeData = (array: MarkdownRemarkEdge[]) => {
       result.push({ data: { id: formattedPath, label: title, tag, category } });
       if (prevStep.length === 0) return result;
       const edges = prevStep.map(step => {
-        return { data: { id: `${step}->${path}`, source: formattedPath, target: step } };
+        return { data: { id: `${step}->${formattedPath}`, source: formattedPath, target: step } };
       });
       return [...result, ...edges];
     },
@@ -27,134 +27,401 @@ export default generateCytoscapeData;
 export const data = [
   {
     data: {
-      id: 'PJ-mindMap',
-      url: 'https://github.com/nomelancholy/js-project-driven-study-mind-map/projects/1?add_cards_query=is%3Aopen',
-      label: 'Project Driven Study Map',
+      id: 'Post01',
+      label: 'Post01',
+      tag: ['mongodb', 'nodejs', 'html5'],
+      category: 'project',
+    },
+  },
+  {
+    data: {
+      id: 'Post02',
+      label: 'Post02',
+      tag: ['gulp', 'pug'],
+      category: 'book',
+    },
+  },
+  {
+    data: {
+      id: 'Post03',
+      label: 'Post03',
+      tag: ['django'],
+      category: 'theory',
+    },
+  },
+  {
+    data: {
+      id: 'Post04',
+      label: 'Post04',
+      tag: ['mongodb'],
+      category: 'theory',
+    },
+  },
+  {
+    data: {
+      id: 'Post05',
+      label: 'Post05',
+      tag: ['react', 'css3'],
+      category: 'project',
+    },
+  },
+  {
+    data: {
+      id: 'Post06',
+      label: 'Post06',
       tag: [],
+      category: 'book',
     },
   },
   {
     data: {
-      id: 'ISSUE-packageJson',
-      url:
-        'https://www.google.co.kr/search?newwindow=1&safe=off&sxsrf=ACYBGNQPahfceN-IrrIMqFcBxt0bBJxcog%3A1577373548670&source=hp&ei=bM8EXp3aJoKpoASW2InwAg&q=no+such+file+or+directory%2C+open+%27C%3A%5Cdev%5Cworkspace%5Cjs-seomal-clone%5Cpackage.json%27&oq=no+such+file+or+directory%2C+open+%27C%3A%5Cdev%5Cworkspace%5Cjs-seomal-clone%5Cpackage.json%27&gs_l=psy-ab.3...7437.7437..8911...1.0..0.95.95.1......0....2j1..gws-wiz.pzIrSS2UT84&ved=0ahUKEwidwK2wztPmAhWCFIgKHRZsAi4Q4dUDCAY&uact=5',
-      label: 'package.json 에러',
+      id: 'Post07',
+      label: 'Post07',
+      tag: ['gulp'],
+      category: 'project',
+    },
+  },
+  {
+    data: {
+      id: 'Post08',
+      label: 'Post08',
+      tag: ['python'],
+      category: 'book',
+    },
+  },
+  {
+    data: {
+      id: 'Post08',
+      label: 'Post08',
+      tag: ['gulp'],
+      category: 'project',
+    },
+  },
+  {
+    data: {
+      id: 'Post09',
+      label: 'Post09',
+      tag: ['django', 'react', 'css3'],
+      category: 'book',
+    },
+  },
+  {
+    data: {
+      id: 'Post10',
+      label: 'Post10',
       tag: [],
+      category: 'book',
     },
   },
   {
-    data: { id: 'PJ-mindMap->ISSUE-packageJson', source: 'ISSUE-packageJson', target: 'PJ-mindMap' },
+    data: {
+      id: 'Post11',
+      label: 'Post11',
+      tag: ['react', 'css3', 'mongodb'],
+      category: 'theory',
+    },
   },
   {
     data: {
-      id: 'STUDY-npmInit',
-      url: 'https://stackoverflow.com/questions/9484829/npm-cant-find-package-json',
-      label: 'npm 패키지 설치 순서 숙지',
+      id: 'Post12',
+      label: 'Post12',
+      tag: ['javascript', 'mongodb', 'graphql'],
+      category: 'project',
+    },
+  },
+  {
+    data: {
+      id: 'Post13',
+      label: 'Post13',
+      tag: ['python', 'pug'],
+      category: 'project',
+    },
+  },
+  {
+    data: {
+      id: 'Post14',
+      label: 'Post14',
+      tag: ['typescript', 'django', 'go'],
+      category: 'project',
+    },
+  },
+  {
+    data: {
+      id: 'Post15',
+      label: 'Post15',
       tag: [],
-    },
-  },
-  {
-    data: { id: 'ISSUE-packageJson->STUDY-npmInit', source: 'STUDY-npmInit', target: 'ISSUE-packageJson' },
-  },
-  {
-    data: {
-      id: 'ISSUE-outsideModule',
-      url:
-        'https://www.google.co.kr/search?newwindow=1&safe=off&sxsrf=ACYBGNT3L0sknJfq3DO75H55Q5VQJODk-Q%3A1577373778729&ei=UtAEXvGVLMLh-AbOm7CYDA&q=Uncaught+SyntaxError%3A+Cannot+use+import+statement+outside+a+modul&oq=Uncaught+SyntaxError%3A+Cannot+use+import+statement+outside+a+modul&gs_l=psy-ab.3..35i39j0l2j0i203l7.513620.513620..514369...0.0..0.167.374.1j2......0....2j1..gws-wiz.gwgT-rwsfWw&ved=0ahUKEwjxhomez9PmAhXCMN4KHc4NDMMQ4dUDCAs&uact=5',
-      label: 'script module 에러',
-      tag: [],
-    },
-  },
-  {
-    data: { id: 'PJ-mindmap->ISSUE-outsideModule', source: 'ISSUE-outsideModule', target: 'PJ-mindMap' },
-  },
-  {
-    data: {
-      id: 'STUDY-scriptModule',
-      url:
-        'https://velog.io/@takeknowledge/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EB%AA%A8%EB%93%88-%ED%95%99%EC%8A%B5-%EB%82%B4%EC%9A%A9-%EC%9A%94%EC%95%BD-lwk4drjnni',
-      label: 'js module 학습',
-      tag: [],
+      category: 'project',
     },
   },
   {
     data: {
-      id: 'ISSUE-outsideModule->STUDY-scriptModule',
-      source: 'STUDY-scriptModule',
-      target: 'ISSUE-outsideModule',
+      id: 'Post16',
+      label: 'Post16',
+      tag: ['graphql', 'typescript', 'go'],
+      category: 'project',
     },
   },
   {
     data: {
-      id: 'STUDY-scriptPosition',
-      url:
-        'https://velog.io/@takeknowledge/script-%ED%83%9C%EA%B7%B8%EB%8A%94-%EC%96%B4%EB%94%94%EC%97%90-%EC%9C%84%EC%B9%98%ED%95%B4%EC%95%BC-%ED%95%A0%EA%B9%8C%EC%9A%94',
-      label: 'script 태그 위치 학습',
-      tag: [],
+      id: 'Post17',
+      label: 'Post17',
+      tag: ['graphql', 'html5'],
+      category: 'theory',
     },
   },
   {
     data: {
-      id: 'ISSUE-outsideModule->STUDY-scriptPosition',
-      source: 'STUDY-scriptPosition',
-      target: 'ISSUE-outsideModule',
+      id: 'Post18',
+      label: 'Post18',
+      tag: ['pug', 'mongodb'],
+      category: 'project',
     },
   },
   {
     data: {
-      id: 'ISSUE-localCORS',
-      url:
-        'https://www.google.co.kr/search?newwindow=1&safe=off&sxsrf=ACYBGNSmKE1wN_fBQuRtT5pwz0hZ5JqldQ%3A1577374293889&ei=VdIEXtP7NY-lmAX82Z7oDg&q=Access+to+script+at+%27file%3A%2F%2F%2FC%3A%2Fdev%2Fworkspace%2Fjs-seomal-clone%2Fjs%2Fcyto.js%27+from+origin+%27null%27+has+been+blocked+by+CORS+policy%3A+Cross+origin+requests+are+only+supported+for+protocol+schemes%3A+http%2C+data%2C+chrome%2C+chrome-extension%2C+https.&oq=Access+to+script+at+%27file%3A%2F%2F%2FC%3A%2Fdev%2Fworkspace%2Fjs-seomal-clone%2Fjs%2Fcyto.js%27+from+origin+%27null%27+has+been+blocked+by+CORS+policy%3A+Cross+origin+requests+are+only+supported+for+protocol+schemes%3A+http%2C+data%2C+chrome%2C+chrome-extension%2C+https.&gs_l=psy-ab.3..35i39j0i20i263l2j0i203l7.516217.516217..516645...0.0..0.177.281.0j2......0....2j1..gws-wiz.JE3_EPpI5o4&ved=0ahUKEwiT-tuT0dPmAhWPEqYKHfysB-0Q4dUDCAs&uact=5',
-      label: 'local 실행시 CORS 에러',
-      tag: ['Javascript', 'Typescript'],
+      id: 'Post19',
+      label: 'Post19',
+      tag: ['mongodb'],
+      category: 'theory',
     },
-  },
-  {
-    data: { id: 'PJ-mindmap->ISSUE-localCORS', source: 'ISSUE-localCORS', target: 'PJ-mindMap' },
   },
   {
     data: {
-      id: 'STUDY-localCORS',
-      url:
-        'https://velog.io/@takeknowledge/%EB%A1%9C%EC%BB%AC%EC%97%90%EC%84%9C-CORS-policy-%EA%B4%80%EB%A0%A8-%EC%97%90%EB%9F%AC%EA%B0%80-%EB%B0%9C%EC%83%9D%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0-3gk4gyhreu',
-      label: 'CORS & SOP 학습',
-      tag: ['Javascript'],
+      id: 'Post20',
+      label: 'Post20',
+      tag: ['django', 'python', 'javascript'],
+      category: 'project',
     },
-  },
-  {
-    data: { id: 'ISSUE-localCORS->STUDY-localCORS', source: 'STUDY-localCORS', target: 'ISSUE-localCORS' },
   },
   {
     data: {
-      id: 'ISSUE-moduleImport',
-      url: 'https://goenning.net/2017/07/21/how-to-avoid-relative-path-hell-javascript-typescript-projects/',
-      label: 'module import 경로 에러',
-      tag: [],
+      id: 'Post21',
+      label: 'Post21',
+      tag: ['graphql', 'html5'],
+      category: 'project',
     },
-  },
-  {
-    data: { id: 'PJ-mindmap->ISSUE-moduleImport', source: 'ISSUE-moduleImport', target: 'PJ-mindMap' },
   },
   {
     data: {
-      id: 'STUDY-webpackBuild',
-      url: 'https://github.com/nomelancholy/webpack-build-practice',
-      label: 'webpack build 실습',
-      tag: [],
+      id: 'Post22',
+      label: 'Post22',
+      tag: ['css3', 'html5'],
+      category: 'project',
     },
-  },
-  {
-    data: { id: 'ISSUE-moduleImport->STUDY-webpackBuild', source: 'STUDY-webpackBuild', target: 'ISSUE-moduleImport' },
   },
   {
     data: {
-      id: 'STUDY-jsBrowser',
-      url: 'https://github.com/nomelancholy/webpack-build-practice',
-      label: 'js 엔진과 runtime 학습',
-      tag: [],
+      id: 'Post23',
+      label: 'Post23',
+      tag: ['html5', 'javascript'],
+      category: 'theory',
     },
   },
   {
-    data: { id: 'STUDY-webpackBuild->STUDY-jsBrowser', source: 'STUDY-jsBrowser', target: 'STUDY-webpackBuild' },
+    data: {
+      id: 'Post24',
+      label: 'Post24',
+      tag: ['graphql', 'gulp'],
+      category: 'project',
+    },
+  },
+  {
+    data: {
+      id: 'Post25',
+      label: 'Post25',
+      tag: ['gulp', 'html5'],
+      category: 'theory',
+    },
+  },
+  {
+    data: {
+      id: 'Post26',
+      label: 'Post26',
+      tag: ['django'],
+      category: 'theory',
+    },
+  },
+  {
+    data: {
+      id: 'Post27',
+      label: 'Post27',
+      tag: ['django', 'nodejs'],
+      category: 'project',
+    },
+  },
+  {
+    data: {
+      id: 'Post01->Post02',
+      source: 'Post02',
+      target: 'Post01',
+    },
+  },
+  {
+    data: {
+      id: 'Post01->Post12',
+      source: 'Post12',
+      target: 'Post01',
+    },
+  },
+  {
+    data: {
+      id: 'Post01->Post15',
+      source: 'Post15',
+      target: 'Post01',
+    },
+  },
+  {
+    data: {
+      id: 'Post02->Post03',
+      source: 'Post03',
+      target: 'Post02',
+    },
+  },
+  {
+    data: {
+      id: 'Post02->Post04',
+      source: 'Post04',
+      target: 'Post02',
+    },
+  },
+  {
+    data: {
+      id: 'Post04->Post05',
+      source: 'Post05',
+      target: 'Post04',
+    },
+  },
+  {
+    data: {
+      id: 'Post04->Post06',
+      source: 'Post06',
+      target: 'Post04',
+    },
+  },
+  {
+    data: {
+      id: 'Post06->Post07',
+      source: 'Post07',
+      target: 'Post06',
+    },
+  },
+  {
+    data: {
+      id: 'Post07->Post08',
+      source: 'Post08',
+      target: 'Post07',
+    },
+  },
+  {
+    data: {
+      id: 'Post08->Post09',
+      source: 'Post09',
+      target: 'Post08',
+    },
+  },
+  {
+    data: {
+      id: 'Post08->Post10',
+      source: 'Post10',
+      target: 'Post08',
+    },
+  },
+  {
+    data: {
+      id: 'Post10->Post11',
+      source: 'Post11',
+      target: 'Post10',
+    },
+  },
+  {
+    data: {
+      id: 'Post10->Post12',
+      source: 'Post12',
+      target: 'Post10',
+    },
+  },
+  {
+    data: {
+      id: 'Post11->Post13',
+      source: 'Post13',
+      target: 'Post11',
+    },
+  },
+  {
+    data: {
+      id: 'Post12->Post14',
+      source: 'Post14',
+      target: 'Post12',
+    },
+  },
+  {
+    data: {
+      id: 'Post15->Post16',
+      source: 'Post16',
+      target: 'Post15',
+    },
+  },
+  {
+    data: {
+      id: 'Post15->Post17',
+      source: 'Post17',
+      target: 'Post15',
+    },
+  },
+  {
+    data: {
+      id: 'Post16->Post20',
+      source: 'Post20',
+      target: 'Post16',
+    },
+  },
+  {
+    data: {
+      id: 'Post17->Post18',
+      source: 'Post18',
+      target: 'Post17',
+    },
+  },
+  {
+    data: {
+      id: 'Post18->Post19',
+      source: 'Post19',
+      target: 'Post18',
+    },
+  },
+  {
+    data: {
+      id: 'Post19->Post24',
+      source: 'Post24',
+      target: 'Post19',
+    },
+  },
+  {
+    data: {
+      id: 'Post20->Post21',
+      source: 'Post21',
+      target: 'Post20',
+    },
+  },
+  {
+    data: {
+      id: 'Post20->Post22',
+      source: 'Post22',
+      target: 'Post20',
+    },
+  },
+  {
+    data: {
+      id: 'Post20->Post23',
+      source: 'Post23',
+      target: 'Post20',
+    },
+  },
+  {
+    data: {
+      id: 'Post23->Post24',
+      source: 'Post24',
+      target: 'Post23',
+    },
   },
 ];

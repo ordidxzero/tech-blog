@@ -142,7 +142,7 @@ function useCytoscape() {
       setDefaultStyle(instance.current);
       if (filter !== null) {
         const filteredElements = instance.current.filter(function (ele) {
-          if (ele.data('tag')) return ele.data('tag').includes(filter);
+          if (ele.data('tag')) return ele.data('tag').includes(filter.toLowerCase());
           return false;
         });
         setDimStyle(instance.current);

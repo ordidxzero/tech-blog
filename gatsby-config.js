@@ -3,8 +3,9 @@ const metaConfig = require('./gatsby-meta-config');
 module.exports = {
   siteMetadata: metaConfig,
   plugins: [
-    `gatsby-plugin-typescript`,
-    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-react-helmet`,
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -12,9 +13,19 @@ module.exports = {
         path: `${__dirname}/posts`,
       },
     },
-    `gatsby-transformer-remark`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-sharp`,
+    },
+    {
+      resolve: `gatsby-plugin-sharp`,
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -28,12 +39,20 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-typescript`,
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+    },
+    {
       resolve: `gatsby-plugin-generate-typings`,
       options: {
         dest: `./src/@types/graphql-types.d.ts`,
       },
     },
-    `gatsby-plugin-postcss`,
+    {
+      resolve: `gatsby-plugin-postcss`,
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

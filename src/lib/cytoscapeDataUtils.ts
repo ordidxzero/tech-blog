@@ -61,7 +61,7 @@ export const data = [
     data: {
       id: 'Post05',
       label: 'Post05',
-      tag: ['react', 'css3'],
+      tag: ['reactjs', 'css3'],
       category: 'project',
     },
   },
@@ -101,7 +101,7 @@ export const data = [
     data: {
       id: 'Post09',
       label: 'Post09',
-      tag: ['django', 'react', 'css3'],
+      tag: ['django', 'reactjs', 'css3'],
       category: 'book',
     },
   },
@@ -117,7 +117,7 @@ export const data = [
     data: {
       id: 'Post11',
       label: 'Post11',
-      tag: ['react', 'css3', 'mongodb'],
+      tag: ['reactjs', 'css3', 'mongodb'],
       category: 'theory',
     },
   },

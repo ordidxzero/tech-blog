@@ -25,7 +25,7 @@ const DispatchContext = createContext<ActionDispatch | undefined>(undefined);
 const mainReducer = (state: MainState, { type, payload }: MainAction): MainState => {
   switch (type) {
     case 'CHANGE_FILTER':
-      return { ...state, filter: payload ? payload.toLowerCase() : payload };
+      return { ...state, filter: payload };
     case 'CHANGE_CATEGORY':
       return { ...state, category: payload };
     default:

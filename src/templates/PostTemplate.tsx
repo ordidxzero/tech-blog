@@ -10,9 +10,7 @@ type IPostTemplateProps = ITemplateProps<{
 const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
   return (
     <Layout>
-      <code>
-        <pre>{JSON.stringify(props, null, 4)}</pre>
-      </code>
+      <div dangerouslySetInnerHTML={{ __html: props.pageContext.html }} />
     </Layout>
   );
 });

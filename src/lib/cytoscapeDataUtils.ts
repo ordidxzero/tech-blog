@@ -1,24 +1,18 @@
-import { MarkdownRemarkEdge } from '../@types/graphql-types';
+import { MarkdownRemark } from '../@types/graphql-types';
 
 const formatString = (text: string) => text.replace(/\//g, '').replace(/ /g, '-');
 
-const generateCytoscapeData = (array: MarkdownRemarkEdge[]) => {
-  const data = array.map(
-    ({
-      node: {
-        frontmatter: { path, title, prevStep = [], tag = [], category = [] },
-      },
-    }) => {
-      const result = [];
-      const formattedPath = path ? formatString(path) : formatString(title);
-      result.push({ data: { id: formattedPath, label: title, tag, category } });
-      if (prevStep.length === 0) return result;
-      const edges = prevStep.map(step => {
-        return { data: { id: `${step}->${formattedPath}`, source: formattedPath, target: step } };
-      });
-      return [...result, ...edges];
-    },
-  );
+const generateCytoscapeData = (array: MarkdownRemark[]) => {
+  const data = array.map(({ frontmatter: { path, title, prevStep = [], tag = [], category = [] } }) => {
+    const result = [];
+    const formattedPath = path ? formatString(path) : formatString(title);
+    result.push({ data: { id: formattedPath, label: title, tag, category } });
+    if (!prevStep) return result;
+    const edges = prevStep.map(step => {
+      return { data: { id: `${step}->${formattedPath}`, source: formattedPath, target: step } };
+    });
+    return [...result, ...edges];
+  });
   return data.reduce((acc: any, val: any) => acc.concat(val), []);
 };
 

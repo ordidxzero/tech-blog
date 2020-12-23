@@ -14,6 +14,9 @@ const formattedNameList = [
   'django',
   'Go',
   'NestJS',
+  'Numpy',
+  'TensorFlow',
+  'AI',
 ];
 
 const useLogoImage = () => {

@@ -6,6 +6,7 @@ import { nodeColor, nodeMaxSize, nodeMinSize, fontMinSize, fontMaxSize } from '.
 import { setDimStyle, setFocusedStyle, setDefaultStyle, setFilteredStyle } from '../lib/cytoscapeStyleUtils';
 import { useContextState } from '../lib/context';
 import generateCytoscapeData, { data } from '../lib/cytoscapeDataUtils';
+import useMarkdownData from './useMarkdownData';
 
 // cose blikent Layout을 사용하기 위해 layout을 cytoscape에 등록함
 cytoscape.use(coseBilkent);
@@ -41,6 +42,7 @@ const cytoscapeLayout = {
 };
 
 function useCytoscape() {
+  const markdown = useMarkdownData();
   const resizeTimer = useRef(0);
   const instance = useRef<cytoscape.Core>();
   const cytoscapeRef = useRef(null);
@@ -83,7 +85,7 @@ function useCytoscape() {
     // Elements는 나중에 useGraphqlData hook을 만들고 가져올 것
     instance.current = cytoscape({
       container: cytoscapeRef.current,
-      elements: data,
+      elements: generateCytoscapeData(markdown.nodes),
       style: [nodeStyle, edgeStyle],
       layout: cytoscapeLayout,
     });
@@ -113,7 +115,7 @@ function useCytoscape() {
 
     instance.current.on('click', 'node', e => {
       const path = e.target.data('id');
-      navigate('/page-2');
+      navigate(path);
       window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
     });
 

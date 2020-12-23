@@ -714,10 +714,10 @@ export type FileFieldsEnum =
   | 'internal___type'
   | 'childMarkdownRemark___id'
   | 'childMarkdownRemark___frontmatter___title'
-  | 'childMarkdownRemark___frontmatter___description'
   | 'childMarkdownRemark___frontmatter___path'
-  | 'childMarkdownRemark___frontmatter___prevStep'
+  | 'childMarkdownRemark___frontmatter___description'
   | 'childMarkdownRemark___frontmatter___tag'
+  | 'childMarkdownRemark___frontmatter___prevStep'
   | 'childMarkdownRemark___frontmatter___category'
   | 'childMarkdownRemark___excerpt'
   | 'childMarkdownRemark___rawMarkdownBody'
@@ -1540,10 +1540,10 @@ export type MarkdownRemarkEdge = {
 export type MarkdownRemarkFieldsEnum = 
   | 'id'
   | 'frontmatter___title'
-  | 'frontmatter___description'
   | 'frontmatter___path'
-  | 'frontmatter___prevStep'
+  | 'frontmatter___description'
   | 'frontmatter___tag'
+  | 'frontmatter___prevStep'
   | 'frontmatter___category'
   | 'excerpt'
   | 'rawMarkdownBody'
@@ -1667,19 +1667,19 @@ export type MarkdownRemarkFilterInput = {
 export type MarkdownRemarkFrontmatter = {
   __typename?: 'MarkdownRemarkFrontmatter';
   title?: Maybe<Scalars['String']>;
-  description?: Maybe<Scalars['String']>;
   path?: Maybe<Scalars['String']>;
-  prevStep?: Maybe<Array<Maybe<Scalars['String']>>>;
+  description?: Maybe<Scalars['String']>;
   tag?: Maybe<Array<Maybe<Scalars['String']>>>;
+  prevStep?: Maybe<Array<Maybe<Scalars['String']>>>;
   category?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type MarkdownRemarkFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
-  description?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
-  prevStep?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
   tag?: Maybe<StringQueryOperatorInput>;
+  prevStep?: Maybe<StringQueryOperatorInput>;
   category?: Maybe<StringQueryOperatorInput>;
 };
 
@@ -2241,12 +2241,14 @@ export type SiteFieldsEnum =
   | 'siteMetadata___title'
   | 'siteMetadata___description'
   | 'siteMetadata___author'
+  | 'siteMetadata___version'
   | 'siteMetadata___introduction'
   | 'siteMetadata___siteUrl'
   | 'siteMetadata___social___twitter'
   | 'siteMetadata___social___github'
   | 'siteMetadata___social___medium'
   | 'siteMetadata___social___facebook'
+  | 'siteMetadata___social___velog'
   | 'siteMetadata___icon'
   | 'siteMetadata___thumbnail'
   | 'siteMetadata___resume___title'
@@ -2983,6 +2985,7 @@ export type SiteSiteMetadata = {
   title?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   author?: Maybe<Scalars['String']>;
+  version?: Maybe<Scalars['String']>;
   introduction?: Maybe<Scalars['String']>;
   siteUrl?: Maybe<Scalars['String']>;
   social?: Maybe<SiteSiteMetadataSocial>;
@@ -3022,6 +3025,7 @@ export type SiteSiteMetadataFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
   author?: Maybe<StringQueryOperatorInput>;
+  version?: Maybe<StringQueryOperatorInput>;
   introduction?: Maybe<StringQueryOperatorInput>;
   siteUrl?: Maybe<StringQueryOperatorInput>;
   social?: Maybe<SiteSiteMetadataSocialFilterInput>;
@@ -3065,6 +3069,7 @@ export type SiteSiteMetadataSocial = {
   github?: Maybe<Scalars['String']>;
   medium?: Maybe<Scalars['String']>;
   facebook?: Maybe<Scalars['String']>;
+  velog?: Maybe<Scalars['String']>;
 };
 
 export type SiteSiteMetadataSocialFilterInput = {
@@ -3072,6 +3077,7 @@ export type SiteSiteMetadataSocialFilterInput = {
   github?: Maybe<StringQueryOperatorInput>;
   medium?: Maybe<StringQueryOperatorInput>;
   facebook?: Maybe<StringQueryOperatorInput>;
+  velog?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SiteSiteMetadataSponsor = {

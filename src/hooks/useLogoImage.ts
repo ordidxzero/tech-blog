@@ -1,39 +1,77 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import { Query } from '../@types/graphql-types';
-import { filterItemList } from '../lib/filterFakeData';
+
+const formattedNameList = [
+  'HTML5',
+  'CSS3',
+  'Javascript',
+  'Typescript',
+  'NodeJS',
+  'ReactJS',
+  'GraphQL',
+  'MongoDB',
+  'Python',
+  'django',
+  'Go',
+  'NestJS',
+];
 
 const useLogoImage = () => {
   const data = useStaticQuery<Query>(graphql`
     query {
-      allImageSharp {
+      allFile(filter: { relativeDirectory: { eq: "logos" } }) {
         nodes {
-          fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid_noBase64
-          }
-          parent {
-            ... on File {
-              name
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid_noBase64
+              originalName
             }
+          }
+        }
+      }
+      allMarkdownRemark {
+        nodes {
+          frontmatter {
+            tag
           }
         }
       }
     }
   `);
-  if (!data?.allImageSharp) {
+  if (!data?.allFile) {
     return [];
   }
-  const lowerItem = filterItemList.map(item => item.toLowerCase());
-  const logos = data.allImageSharp.nodes
-    .filter(({ parent: { name: noname } }) => {
-      const name = (noname as string).split('_')[0];
-      return lowerItem.includes(name);
+  const validTags = data.allMarkdownRemark.nodes
+    .map(node => node.frontmatter.tag)
+    .reduce((a, b) => a.concat(b), [])
+    .map(item => item.toLowerCase());
+
+  const errorLogo = data.allFile.nodes.find(({ childImageSharp: { fluid } }) => {
+    const { originalName } = fluid;
+    const name = originalName.split('_')[0];
+    return name === 'error';
+  });
+
+  const logos = validTags
+    .map(tag => {
+      const logo = data.allFile.nodes.find(({ childImageSharp: { fluid } }) => {
+        const { originalName } = fluid;
+        const name = originalName.split('_')[0];
+        return name === tag;
+      });
+      if (!logo) return { fluid: errorLogo.childImageSharp.fluid, name: tag, isError: true };
+      return { fluid: logo.childImageSharp.fluid, name: tag };
     })
-    .map(({ fluid, parent: { name: noname } }) => {
-      // name = xx_256x256 형태
-      const name = (noname as string).split('_')[0];
-      const formattedName = filterItemList.find(item => item.toLowerCase() === name);
-      if (formattedName) return { fluid, name: formattedName };
-      return { fluid, name };
+    .map(logo => {
+      const formattedName = formattedNameList.find(item => item.toLowerCase() === logo.name);
+      if (formattedName) return { ...logo, name: formattedName };
+      return logo;
+    })
+    .sort((a, b) => {
+      if (a.isError && b.isError) return 0;
+      if (a.isError && !b.isError) return 1;
+      if (!a.isError && b.isError) return -1;
+      if (!a.isError && !b.isError) return 0;
     });
   return logos;
 };

@@ -80,4 +80,4 @@ function SEO({ description = '', lang = 'en', meta = [], title }: SEOProps) {
   );
 }
 
-export default SEO;
+export default React.memo(SEO);

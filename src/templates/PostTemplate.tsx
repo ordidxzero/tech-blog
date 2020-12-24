@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '../components/core/layout';
 import SEO from '../components/core/seo';
+import Utterances from '../components/post/Utterances';
 import { ITemplateProps } from '../interfaces';
 
 type IPostTemplateProps = ITemplateProps<{
@@ -22,20 +23,22 @@ const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
           <h1 className="m-0 mb-1 font-bold">{title}</h1>
           <div className="post-info text-xs flex justify-center items-center">
             <span>{birthTime}</span>
-            {category.map(item => (
-              <>
-                <span className="mx-1">·</span>
-                <span key={item} className="capitalize">
-                  {item}
-                </span>
-              </>
-            ))}
+            {category &&
+              category.map(item => (
+                <>
+                  <span className="mx-1">·</span>
+                  <span key={item} className="capitalize">
+                    {item}
+                  </span>
+                </>
+              ))}
           </div>
         </div>
         <div dangerouslySetInnerHTML={{ __html }}></div>
       </div>
+      <Utterances />
     </Layout>
   );
 });
 
-export default PostTemplate;
+export default React.memo(PostTemplate);

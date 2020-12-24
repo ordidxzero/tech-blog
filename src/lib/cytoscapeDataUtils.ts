@@ -1,6 +1,6 @@
 import { MarkdownRemark } from '../@types/graphql-types';
 
-const formatString = (text: string) => text.replace(/\//g, '').replace(/ /g, '-');
+export const formatString = (text: string) => text.replace(/\//g, '').replace(/ /g, '-');
 
 const generateCytoscapeData = (array: MarkdownRemark[]) => {
   const data = array.map(({ frontmatter: { path, title, prevStep = [], tag = [], category = [] } }) => {

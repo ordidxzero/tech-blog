@@ -16,11 +16,6 @@ function useMarkdownData() {
             tag
             category
           }
-          parent {
-            ... on File {
-              birthTime(formatString: "YYYY-MM-DD")
-            }
-          }
         }
       }
     }

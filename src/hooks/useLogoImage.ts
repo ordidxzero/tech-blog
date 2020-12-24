@@ -25,7 +25,7 @@ const useLogoImage = () => {
       allFile(filter: { relativeDirectory: { eq: "logos" } }) {
         nodes {
           childImageSharp {
-            fluid {
+            fluid(maxWidth: 50) {
               ...GatsbyImageSharpFluid_noBase64
               originalName
             }

@@ -1,17 +1,26 @@
+import { resolve } from 'path';
 import { CreatePagesArgs } from 'gatsby';
-import path from 'path';
 import { Query } from '../@types/graphql-types';
+import { formatString } from './cytoscapeDataUtils';
 
 export async function createPages({ actions, graphql }: CreatePagesArgs) {
   const { createPage } = actions;
   const { data, errors } = await graphql<Query>(`
     {
       allMarkdownRemark {
-        edges {
-          node {
-            html
-            frontmatter {
-              title
+        nodes {
+          html
+          frontmatter {
+            tag
+            title
+            path
+            prevStep
+            tag
+            category
+          }
+          parent {
+            ... on File {
+              birthTime(formatString: "YYYY-MM-DD")
             }
           }
         }
@@ -23,14 +32,19 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
     throw errors;
   }
 
-  data.allMarkdownRemark.edges.forEach(({ node }) => {
-    createPage({
-      path: node.frontmatter.title,
+  data.allMarkdownRemark.nodes.forEach(({ html, frontmatter: { title, path, tag, prevStep, category }, parent }) => {
+    const { birthTime } = parent as any;
+    return createPage({
+      path: path ? formatString(path) : formatString(title),
       context: {
-        html: node.html,
-        title: node.frontmatter.title,
+        html,
+        title,
+        tag,
+        prevStep,
+        category,
+        birthTime,
       },
-      component: path.resolve(__dirname, '../templates/PostTemplate.tsx'),
+      component: resolve(__dirname, '../templates/PostTemplate.tsx'),
     });
   });
 }

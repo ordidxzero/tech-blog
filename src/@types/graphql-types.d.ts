@@ -2420,11 +2420,19 @@ export type SitePageContext = {
   __typename?: 'SitePageContext';
   html?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
+  tag?: Maybe<Array<Maybe<Scalars['String']>>>;
+  prevStep?: Maybe<Array<Maybe<Scalars['String']>>>;
+  category?: Maybe<Array<Maybe<Scalars['String']>>>;
+  birthTime?: Maybe<Scalars['Date']>;
 };
 
 export type SitePageContextFilterInput = {
   html?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
+  tag?: Maybe<StringQueryOperatorInput>;
+  prevStep?: Maybe<StringQueryOperatorInput>;
+  category?: Maybe<StringQueryOperatorInput>;
+  birthTime?: Maybe<DateQueryOperatorInput>;
 };
 
 export type SitePageEdge = {
@@ -2529,6 +2537,10 @@ export type SitePageFieldsEnum =
   | 'isCreatedByStatefulCreatePages'
   | 'context___html'
   | 'context___title'
+  | 'context___tag'
+  | 'context___prevStep'
+  | 'context___category'
+  | 'context___birthTime'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'
   | 'pluginCreator___parent___parent___id'

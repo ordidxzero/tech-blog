@@ -714,10 +714,10 @@ export type FileFieldsEnum =
   | 'internal___type'
   | 'childMarkdownRemark___id'
   | 'childMarkdownRemark___frontmatter___title'
-  | 'childMarkdownRemark___frontmatter___description'
   | 'childMarkdownRemark___frontmatter___path'
-  | 'childMarkdownRemark___frontmatter___prevStep'
+  | 'childMarkdownRemark___frontmatter___description'
   | 'childMarkdownRemark___frontmatter___tag'
+  | 'childMarkdownRemark___frontmatter___prevStep'
   | 'childMarkdownRemark___frontmatter___category'
   | 'childMarkdownRemark___excerpt'
   | 'childMarkdownRemark___rawMarkdownBody'
@@ -1540,10 +1540,10 @@ export type MarkdownRemarkEdge = {
 export type MarkdownRemarkFieldsEnum = 
   | 'id'
   | 'frontmatter___title'
-  | 'frontmatter___description'
   | 'frontmatter___path'
-  | 'frontmatter___prevStep'
+  | 'frontmatter___description'
   | 'frontmatter___tag'
+  | 'frontmatter___prevStep'
   | 'frontmatter___category'
   | 'excerpt'
   | 'rawMarkdownBody'
@@ -1667,19 +1667,19 @@ export type MarkdownRemarkFilterInput = {
 export type MarkdownRemarkFrontmatter = {
   __typename?: 'MarkdownRemarkFrontmatter';
   title?: Maybe<Scalars['String']>;
-  description?: Maybe<Scalars['String']>;
   path?: Maybe<Scalars['String']>;
-  prevStep?: Maybe<Array<Maybe<Scalars['String']>>>;
+  description?: Maybe<Scalars['String']>;
   tag?: Maybe<Array<Maybe<Scalars['String']>>>;
+  prevStep?: Maybe<Array<Maybe<Scalars['String']>>>;
   category?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type MarkdownRemarkFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
-  description?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
-  prevStep?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
   tag?: Maybe<StringQueryOperatorInput>;
+  prevStep?: Maybe<StringQueryOperatorInput>;
   category?: Maybe<StringQueryOperatorInput>;
 };
 

@@ -13,7 +13,7 @@ const Header = ({ siteTitle = '' }: HeaderProps) => {
   // const currentScrollPosition = useScroll();
   return (
     <>
-      <header className="h-16 fixed top-0 left-0 right-0 bg-gray-750 flex justify-center opacity-95">
+      <header className="h-16 fixed z-50 top-0 left-0 right-0 bg-gray-750 flex justify-center">
         <div className="base-container flex justify-between items-center">
           <h1 className="m-0 text-3xl">
             <Link to="/" className="text-white no-underline">

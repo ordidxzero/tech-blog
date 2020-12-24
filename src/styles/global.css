@@ -7,24 +7,12 @@
 }
 
 .base-container {
-  @apply w-full h-full px-4 sm:w-full-8 sm:px-0 2xl:w-344 3xl:w-432;
+  @apply relative w-full h-full px-4 sm:w-full-8 sm:px-0 2xl:w-344 3xl:w-432;
 }
 
-.utterances {
-  @apply max-w-full;
-}
-
-.post-container {
-  font-family: 'Noto Serif KR', serif;
-}
-
-.post-info {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-    sans-serif;
-}
-
+/*  Main Filter and Cytoscape */
 .index-box {
-  @apply rounded-md shadow-sm bg-white shadow-lg;
+  @apply rounded-md bg-white shadow-lg;
 }
 
 .category {
@@ -65,4 +53,55 @@
 
 .filter-item:hover .item-title {
   @apply opacity-100;
+}
+
+/* Post */
+
+.utterances {
+  @apply max-w-full;
+}
+
+.post-container {
+  font-family: 'Noto Serif KR', serif;
+}
+
+.post-info {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+.custom-shadow {
+  -webkit-box-shadow: 6px 3px 13px -1px rgba(0, 0, 0, 0.29);
+  box-shadow: 6px 3px 13px -1px rgba(0, 0, 0, 0.29);
+}
+
+@keyframes activateAnimation {
+  from {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  to {
+    width: 20rem;
+    height: 17rem;
+  }
+}
+
+@keyframes deactivateAnimation {
+  from {
+    width: 20rem;
+    height: 17rem;
+  }
+  to {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+.activate-navigator {
+  animation: activateAnimation 0.15s forwards;
+}
+
+.deactivate-navigator {
+  animation: deactivateAnimation 0.15s forwards;
 }

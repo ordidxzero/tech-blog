@@ -115,7 +115,7 @@ function useCytoscape() {
 
     instance.current.on('click', 'node', e => {
       const path = e.target.data('id');
-      navigate(path);
+      navigate(`/${path}`);
       window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
     });
 

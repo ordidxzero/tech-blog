@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '../components/core/layout';
 import SEO from '../components/core/seo';
+import CytoscapeNavigator from '../components/post/cytoscapeNavigator';
 import Utterances from '../components/post/Utterances';
 import { ITemplateProps } from '../interfaces';
 
@@ -36,7 +37,8 @@ const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
         </div>
         <div dangerouslySetInnerHTML={{ __html }}></div>
       </div>
-      <Utterances />
+      <CytoscapeNavigator />
+      {/* <Utterances /> */}
     </Layout>
   );
 });

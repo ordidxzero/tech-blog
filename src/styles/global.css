@@ -82,15 +82,15 @@
   }
 
   to {
-    width: 20rem;
-    height: 17rem;
+    width: 28rem;
+    height: 20rem;
   }
 }
 
 @keyframes deactivateAnimation {
   from {
-    width: 20rem;
-    height: 17rem;
+    width: 28rem;
+    height: 20rem;
   }
   to {
     width: 1rem;

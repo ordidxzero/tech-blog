@@ -37,7 +37,7 @@ const edgeStyle: cytoscape.Stylesheet = {
 const cytoscapeLayout = {
   name: 'cose-bilkent',
   animate: false,
-  tile: false,
+  tile: true,
   gravityRangeCompound: 1.2,
 };
 
@@ -85,7 +85,7 @@ function useCytoscape() {
     // Elements는 나중에 useGraphqlData hook을 만들고 가져올 것
     instance.current = cytoscape({
       container: cytoscapeRef.current,
-      elements: generateCytoscapeData(markdown.nodes),
+      elements: data, // generateCytoscapeData(markdown.nodes),
       style: [nodeStyle, edgeStyle],
       layout: cytoscapeLayout,
     });

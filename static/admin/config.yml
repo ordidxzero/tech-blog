@@ -1,3 +1,16 @@
 backend:
   name: github
   repo: ordidxzero/tech-blog
+media_folder: static/images
+public_folder: /images
+collections:
+  - name: posts
+    label: Post
+    folder: posts
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    create: true
+    fields:
+      - { name: path, label: Path }
+      - { name: date, label: Date, widget: datetime }
+      - { name: title, label: Title }
+      - { name: body, label: Body, widget: markdown }

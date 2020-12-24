@@ -85,7 +85,7 @@ function useCytoscape() {
     // Elements는 나중에 useGraphqlData hook을 만들고 가져올 것
     instance.current = cytoscape({
       container: cytoscapeRef.current,
-      elements: data, // generateCytoscapeData(markdown.nodes),
+      elements: generateCytoscapeData(markdown.nodes),
       style: [nodeStyle, edgeStyle],
       layout: cytoscapeLayout,
     });

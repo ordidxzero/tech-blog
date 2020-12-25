@@ -6,7 +6,6 @@ prevStep:
   - Post01
 tag:
   - nodejs
-  - pug
   - typescript
   - tensorflow
   - ai

@@ -1,23 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import { Query } from '../@types/graphql-types';
-
-const formattedNameList = [
-  'HTML5',
-  'CSS3',
-  'Javascript',
-  'Typescript',
-  'NodeJS',
-  'ReactJS',
-  'GraphQL',
-  'MongoDB',
-  'Python',
-  'django',
-  'Go',
-  'NestJS',
-  'Numpy',
-  'TensorFlow',
-  'AI',
-];
+import { formattedNameList } from '../lib/cytoscapeExtraData';
+import { filterOverlap, findLogoByName, flattenArray } from '../lib/tagDataUtils';
 
 const useLogoImage = () => {
   const data = useStaticQuery<Query>(graphql`
@@ -44,32 +28,27 @@ const useLogoImage = () => {
   if (!data?.allFile) {
     return [];
   }
-  const flattenTags = data.allMarkdownRemark.nodes
-    .map(node => node.frontmatter.tag)
-    .reduce((a, b) => a.concat(b), [])
-    .map(item => item.toLowerCase());
 
-  const validTags = Array.from(new Set(flattenTags));
+  const {
+    allMarkdownRemark: { nodes: markdowns },
+    allFile: { nodes: files },
+  } = data;
 
-  const errorLogo = data.allFile.nodes.find(({ childImageSharp: { fluid } }) => {
-    const { originalName } = fluid;
-    const name = originalName.split('_')[0];
-    return name === 'error';
-  });
+  const flattenTags = flattenArray(markdowns.map(({ frontmatter: { tag } }) => tag));
+
+  const validTags = filterOverlap(flattenTags);
+
+  const errorLogo = findLogoByName(files, 'error');
 
   const logos = validTags
     .map(tag => {
-      const logo = data.allFile.nodes.find(({ childImageSharp: { fluid } }) => {
-        const { originalName } = fluid;
-        const name = originalName.split('_')[0];
-        return name === tag;
-      });
+      const logo = findLogoByName(files, tag);
       if (!logo) return { fluid: errorLogo.childImageSharp.fluid, name: tag, isError: true };
       return { fluid: logo.childImageSharp.fluid, name: tag };
     })
     .map(logo => {
-      const formattedName = formattedNameList.find(item => item.toLowerCase() === logo.name);
-      if (formattedName) return { ...logo, name: formattedName };
+      const formattedName = formattedNameList.find(({ alias }) => alias.includes(logo.name));
+      if (formattedName) return { ...logo, name: formattedName.name };
       return logo;
     })
     .sort((a, b) => {

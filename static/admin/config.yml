@@ -10,7 +10,15 @@ collections:
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     create: true
     fields:
-      - { name: path, label: Path }
-      - { name: date, label: Date, widget: datetime }
       - { name: title, label: Title }
+      - { name: path, label: Path, required: false }
+      - { name: prevStep, label: Previous Step, widget: select, options: [Post01, Post04] }
+      - { name: category, label: Category, widget: select, multiple: true, options: [theory, book, project], default: [project] }
+      - {
+          name: tags,
+          label: Tags,
+          widget: select,
+          multiple: true,
+          options: [javascript, nodejs, pug, typescript, tensorflow, ai],
+        }
       - { name: body, label: Body, widget: markdown }

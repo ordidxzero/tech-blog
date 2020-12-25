@@ -12,7 +12,7 @@ collections:
     fields:
       - { name: title, label: Title }
       - { name: path, label: Path, required: false }
-      - { name: prevStep, label: Previous Step, widget: select, options: [Post01, Post04] }
+      - { name: prevStep, label: Previous Step, widget: select, multiple: true, options: [Post01, Post04] }
       - { name: category, label: Category, widget: select, multiple: true, options: [theory, book, project], default: [project] }
       - {
           name: tags,

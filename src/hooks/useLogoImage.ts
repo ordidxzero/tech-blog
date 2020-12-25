@@ -42,14 +42,10 @@ const useLogoImage = () => {
 
   const logos = validTags
     .map(tag => {
-      const logo = findLogoByName(files, tag);
-      if (!logo) return { fluid: errorLogo.childImageSharp.fluid, name: tag, isError: true };
-      return { fluid: logo.childImageSharp.fluid, name: tag };
-    })
-    .map(logo => {
-      const formattedName = formattedNameList.find(({ alias }) => alias.includes(logo.name));
-      if (formattedName) return { ...logo, name: formattedName.name };
-      return logo;
+      const tagName = formattedNameList.find(({ alias }) => alias.includes(tag.toLowerCase()));
+      if (!tagName) return { fluid: errorLogo.childImageSharp.fluid, name: tag, isError: true };
+      const logo = findLogoByName(files, tagName.name.toLowerCase());
+      return { fluid: logo.childImageSharp.fluid, name: tagName.name };
     })
     .sort((a, b) => {
       if (a.isError && b.isError) return 0;

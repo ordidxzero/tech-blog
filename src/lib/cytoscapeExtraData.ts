@@ -6,62 +6,62 @@ type ExtraData = {
 export const formattedNameList: ExtraData[] = [
   {
     name: 'HTML5',
-    alias: ['HTML5', 'html', 'html5'],
+    alias: ['html', 'html5'],
   },
   {
     name: 'CSS3',
-    alias: ['CSS3', 'css', 'css3'],
+    alias: ['css', 'css3'],
   },
   {
     name: 'Javascript',
-    alias: ['Javascript', 'js', 'javascript'],
+    alias: ['js', 'javascript'],
   },
   {
     name: 'Typescript',
-    alias: ['Typescript', 'ts', 'typescript'],
+    alias: ['ts', 'typescript'],
   },
   {
     name: 'NodeJS',
-    alias: ['NodeJS', 'node', 'nodejs'],
+    alias: ['node', 'nodejs'],
   },
   {
     name: 'ReactJS',
-    alias: ['ReactJS', 'react', 'reactjs'],
+    alias: ['react', 'reactjs'],
   },
   {
     name: 'GraphQL',
-    alias: ['GraphQL', 'graphql', 'gql'],
+    alias: ['graphql', 'gql'],
   },
   {
     name: 'MongoDB',
-    alias: ['MongoDB', 'mongo', 'mongodb'],
+    alias: ['mongo', 'mongodb'],
   },
   {
     name: 'Python',
-    alias: ['Python', 'python'],
+    alias: ['python'],
   },
   {
     name: 'django',
-    alias: ['django', 'django'],
+    alias: ['django'],
   },
   {
     name: 'Go',
-    alias: ['Go', 'go', 'golang'],
+    alias: ['go', 'golang'],
   },
   {
     name: 'NestJS',
-    alias: ['NestJS', 'nest', 'nestjs'],
+    alias: ['nest', 'nestjs'],
   },
   {
     name: 'Numpy',
-    alias: ['Numpy', 'numpy'],
+    alias: ['numpy'],
   },
   {
     name: 'TensorFlow',
-    alias: ['TensorFlow', 'tf', 'tensorflow'],
+    alias: ['tf', 'tensorflow'],
   },
   {
     name: 'AI',
-    alias: ['AI', 'ai', 'ml', 'dl', 'machine-learning', 'deep-learning'],
+    alias: ['ai', 'ml', 'dl', 'machine-learning', 'deep-learning'],
   },
 ];

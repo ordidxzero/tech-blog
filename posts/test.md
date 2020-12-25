@@ -2,7 +2,8 @@
 title: Post01
 path: Post01
 description: Post1
-tag: [javascript]
+tag:
+  - javascript
 ---
 
 ## 🚀 Quick start

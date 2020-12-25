@@ -14,5 +14,5 @@ collections:
       - { name: path, label: Path, required: false }
       - { name: prevStep, label: Previous Step, widget: select, multiple: true, options: [Post01, Post04] }
       - { name: category, label: Category, widget: select, multiple: true, options: [theory, book, project], default: [project] }
-      - { name: tags, label: Tags, widget: list, multiple: true, options: [javascript, nodejs, pug, typescript, tensorflow, ai] }
+      - { name: tag, label: Tags, widget: select, multiple: true, options: [javascript, nodejs, pug, typescript, tensorflow, ai] }
       - { name: body, label: Body, widget: markdown }

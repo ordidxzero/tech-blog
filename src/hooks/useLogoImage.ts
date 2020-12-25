@@ -44,10 +44,12 @@ const useLogoImage = () => {
   if (!data?.allFile) {
     return [];
   }
-  const validTags = data.allMarkdownRemark.nodes
+  const flattenTags = data.allMarkdownRemark.nodes
     .map(node => node.frontmatter.tag)
     .reduce((a, b) => a.concat(b), [])
     .map(item => item.toLowerCase());
+
+  const validTags = Array.from(new Set(flattenTags));
 
   const errorLogo = data.allFile.nodes.find(({ childImageSharp: { fluid } }) => {
     const { originalName } = fluid;

@@ -38,7 +38,7 @@ const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
         <div dangerouslySetInnerHTML={{ __html }}></div>
       </div>
       <CytoscapeNavigator />
-      {/* <Utterances /> */}
+      <Utterances />
     </Layout>
   );
 });

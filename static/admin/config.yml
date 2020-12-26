@@ -10,9 +10,36 @@ collections:
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     create: true
     fields:
-      - { name: title, label: Title }
-      - { name: path, label: Path, required: false }
-      - { name: prevStep, label: Previous Step, widget: select, multiple: true, options: [Post01, Post04] }
-      - { name: category, label: Category, widget: select, multiple: true, options: [theory, book, project], default: [project] }
-      - { name: tag, label: Tag, widget: list, required: false }
-      - { name: body, label: Body, widget: markdown }
+      - name: title
+        label: Title
+      - name: path
+        label: Path
+        required: false
+      - name: prevStep
+        label: Previous Step
+        widget: select
+        multiple: true
+        options:
+          - label: Test Post
+            value: Test-Post
+          - label: Post01
+            value: Post01
+          - label: Post04
+            value: Post04
+      - name: category
+        label: Category
+        widget: select
+        multiple: true
+        options:
+          - theory
+          - book
+          - project
+        default:
+          - project
+      - name: tag
+        label: Tag
+        widget: list
+        required: false
+      - name: body
+        label: Body
+        widget: markdown

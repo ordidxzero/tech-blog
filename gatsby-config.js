@@ -59,6 +59,7 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-netlify-cms`,
+      options: { publicPath: `madara` },
     },
     {
       resolve: `gatsby-plugin-postcss`,

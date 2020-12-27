@@ -5,7 +5,7 @@ import { navigate } from 'gatsby';
 import { nodeColor, nodeMaxSize, nodeMinSize, fontMinSize, fontMaxSize } from '../constants/cytoscape.constant';
 import { setDimStyle, setFocusedStyle, setDefaultStyle, setFilteredStyle } from '../lib/cytoscapeStyleUtils';
 import { useContextState } from '../lib/context';
-import generateCytoscapeData, { data } from '../lib/cytoscapeDataUtils';
+import generateCytoscapeData from '../lib/cytoscapeDataUtils';
 import useMarkdownData from './useMarkdownData';
 
 // cose blikent Layout을 사용하기 위해 layout을 cytoscape에 등록함
@@ -132,7 +132,10 @@ function useCytoscape() {
       const elements = instance.current.elements().filter(el => el.hidden());
       elements.style('display', 'element');
       if (category !== 'overview') {
-        const elements = instance.current.filter(`node[category != "${category}"]`);
+        const elements = instance.current.elements().filter(function (node) {
+          if (!node.data('category')) return true;
+          return !node.data('category').includes(category);
+        });
         elements.style('display', 'none');
       }
     }

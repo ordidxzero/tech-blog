@@ -34,7 +34,7 @@ const useLogoImage = () => {
     allFile: { nodes: files },
   } = data;
 
-  const flattenTags = flattenArray(markdowns.map(({ frontmatter: { tag } }) => tag));
+  const flattenTags = flattenArray(markdowns.map(({ frontmatter: { tag } }) => tag).filter(item => !!item));
 
   const validTags = filterOverlap(flattenTags);
 

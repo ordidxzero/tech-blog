@@ -5,7 +5,7 @@ prevStep:
   - prevent-error
 category:
   - theory
-tags:
+tag:
   - ai
   - python
 ---

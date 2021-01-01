@@ -1,6 +1,8 @@
 ---
 title: '[밑바닥부터 시작하는 딥러닝] 퍼셉트론'
 path: dlfs-perceptron
+prevStep:
+  - prevent-error
 category:
   - theory
 tag:

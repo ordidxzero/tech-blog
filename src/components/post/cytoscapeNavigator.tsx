@@ -6,14 +6,14 @@ function CytoscapeNavigator() {
   return (
     <>
       <div
-        className={`fixed z-10 bottom-10 right-10 bg-gray-100 custom-shadow rounded-lg p-2 origin-bottom-right overflow-hidden ${
+        className={`fixed z-10 bottom-10 right-10 bg-gray-100 custom-shadow rounded-lg p-2 origin-bottom-right overflow-hidden hidden 2xl:block ${
           state === null ? '' : state ? 'activate-navigator' : 'deactivate-navigator'
         }`}
       >
         <Cytoscape className="rounded-lg bg-white" />
       </div>
       <div
-        className={`fixed z-50 justify-center items-center bottom-4 right-4 w-14 h-14 rounded-full custom-shadow cursor-pointer hidden 2xl:flex duration-150 ${
+        className={`fixed hidden z-50 justify-center items-center bottom-4 right-4 w-14 h-14 rounded-full custom-shadow cursor-pointer 2xl:flex duration-150 ${
           state ? 'bg-red-500' : 'bg-green-500'
         }`}
         onClick={() => setState(state === null ? true : !state)}

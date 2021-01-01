@@ -4,6 +4,7 @@ import SEO from '../components/core/seo';
 import CytoscapeNavigator from '../components/post/cytoscapeNavigator';
 import Utterances from '../components/post/Utterances';
 import { ITemplateProps } from '../interfaces';
+import 'katex/dist/katex.min.css';
 
 type IPostTemplateProps = ITemplateProps<{
   html: string;

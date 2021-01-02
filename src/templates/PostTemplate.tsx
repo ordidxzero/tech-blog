@@ -20,7 +20,7 @@ const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
   return (
     <Layout>
       <SEO title={title} />
-      <div className="post-container w-full h-full mt-12">
+      <div className="post-container w-full h-full lg:max-w-3xl mx-auto mt-12">
         <div className="flex flex-col justify-start items-center mb-20">
           <h1 className="m-0 mb-1 font-bold">{title}</h1>
           <div className="post-info text-xs flex justify-center items-center">

@@ -15,6 +15,8 @@ module.exports = {
         'full-8': 'calc(100% - 2rem)',
         'full-20': 'calc(100% - 5rem)',
         'screen-16': 'calc(100vh - 4rem)',
+        'screen-26': 'calc(100vh - 6.5rem)',
+        'screen-28': 'calc(100vh - 7rem)',
       },
       maxWidth: {
         344: '1376px',

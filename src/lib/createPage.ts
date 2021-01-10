@@ -1,7 +1,6 @@
 import { resolve } from 'path';
 import { CreatePagesArgs } from 'gatsby';
 import { Query } from '../@types/graphql-types';
-import { formatString } from './cytoscapeDataUtils';
 
 export async function createPages({ actions, graphql }: CreatePagesArgs) {
   const { createPage } = actions;
@@ -35,7 +34,7 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
   data.allMarkdownRemark.nodes.forEach(({ html, frontmatter: { title, path, tag, prevStep, category }, parent }) => {
     const { birthTime } = parent as any;
     return createPage({
-      path: path ? formatString(path) : formatString(title),
+      path,
       context: {
         html,
         title,

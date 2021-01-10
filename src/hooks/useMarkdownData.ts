@@ -7,6 +7,11 @@ function useMarkdownData() {
       allMarkdownRemark {
         nodes {
           html
+          parent {
+            ... on File {
+              birthTime(formatString: "YYYY-MM-DD")
+            }
+          }
           frontmatter {
             tag
             title
@@ -16,6 +21,7 @@ function useMarkdownData() {
             tag
             category
           }
+          excerpt(pruneLength: 170, truncate: true)
         }
       }
     }

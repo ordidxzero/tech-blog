@@ -116,7 +116,10 @@ function useCytoscape() {
     instance.current.on('click', 'node', e => {
       const path = e.target.data('id');
       navigate(`/${path}`);
-      window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+    });
+    instance.current.on('touchstart', 'node', e => {
+      const path = e.target.data('id');
+      navigate(`/${path}`);
     });
 
     // Window Event Listener
@@ -145,7 +148,7 @@ function useCytoscape() {
     if (instance.current) {
       // Filter가 적용됐을 때, filteredElements의 스타일을 정한다.
       setDefaultStyle(instance.current);
-      if (filter !== null) {
+      if (filter !== null && typeof filter === 'string') {
         const filteredElements = instance.current.filter(function (ele) {
           if (ele.data('tag')) return ele.data('tag').includes(filter.toLowerCase());
           return false;

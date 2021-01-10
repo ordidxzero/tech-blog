@@ -5,6 +5,7 @@ import CytoscapeNavigator from '../components/post/cytoscapeNavigator';
 import Utterances from '../components/post/Utterances';
 import { ITemplateProps } from '../interfaces';
 import 'katex/dist/katex.min.css';
+import Footer from '../components/core/footer';
 
 type IPostTemplateProps = ITemplateProps<{
   html: string;
@@ -27,14 +28,10 @@ const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
             <span>{birthTime}</span>
             {category &&
               category.map((item, index) => (
-                <>
-                  <span key={index} className="mx-1">
-                    ·
-                  </span>
-                  <span key={item} className="capitalize">
-                    {item}
-                  </span>
-                </>
+                <span key={item} className="capitalize">
+                  <span className="mx-1">·</span>
+                  {item}
+                </span>
               ))}
           </div>
         </div>
@@ -42,6 +39,7 @@ const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
       </div>
       <CytoscapeNavigator />
       <Utterances />
+      <Footer />
     </Layout>
   );
 });

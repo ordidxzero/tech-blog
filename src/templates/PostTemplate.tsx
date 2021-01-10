@@ -28,7 +28,7 @@ const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
           <div className="post-info text-xs flex justify-center items-center">
             <span>{birthTime}</span>
             {category &&
-              category.map((item, index) => (
+              category.map(item => (
                 <span key={item} className="capitalize">
                   <span className="mx-1">·</span>
                   {item}

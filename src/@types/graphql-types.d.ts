@@ -2413,6 +2413,7 @@ export type SitePageConnectionGroupArgs = {
 export type SitePageContext = {
   __typename?: 'SitePageContext';
   html?: Maybe<Scalars['String']>;
+  excerpt?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
   tag?: Maybe<Array<Maybe<Scalars['String']>>>;
   prevStep?: Maybe<Array<Maybe<Scalars['String']>>>;
@@ -2422,6 +2423,7 @@ export type SitePageContext = {
 
 export type SitePageContextFilterInput = {
   html?: Maybe<StringQueryOperatorInput>;
+  excerpt?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
   tag?: Maybe<StringQueryOperatorInput>;
   prevStep?: Maybe<StringQueryOperatorInput>;
@@ -2530,6 +2532,7 @@ export type SitePageFieldsEnum =
   | 'internal___type'
   | 'isCreatedByStatefulCreatePages'
   | 'context___html'
+  | 'context___excerpt'
   | 'context___title'
   | 'context___tag'
   | 'context___prevStep'

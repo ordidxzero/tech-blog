@@ -716,9 +716,9 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___frontmatter___title'
   | 'childMarkdownRemark___frontmatter___description'
   | 'childMarkdownRemark___frontmatter___path'
+  | 'childMarkdownRemark___frontmatter___prevStep'
   | 'childMarkdownRemark___frontmatter___category'
   | 'childMarkdownRemark___frontmatter___tag'
-  | 'childMarkdownRemark___frontmatter___prevStep'
   | 'childMarkdownRemark___excerpt'
   | 'childMarkdownRemark___rawMarkdownBody'
   | 'childMarkdownRemark___fileAbsolutePath'
@@ -1542,9 +1542,9 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___title'
   | 'frontmatter___description'
   | 'frontmatter___path'
+  | 'frontmatter___prevStep'
   | 'frontmatter___category'
   | 'frontmatter___tag'
-  | 'frontmatter___prevStep'
   | 'excerpt'
   | 'rawMarkdownBody'
   | 'fileAbsolutePath'
@@ -1669,18 +1669,18 @@ export type MarkdownRemarkFrontmatter = {
   title?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   path?: Maybe<Scalars['String']>;
+  prevStep?: Maybe<Array<Maybe<Scalars['String']>>>;
   category?: Maybe<Array<Maybe<Scalars['String']>>>;
   tag?: Maybe<Array<Maybe<Scalars['String']>>>;
-  prevStep?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type MarkdownRemarkFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
+  prevStep?: Maybe<StringQueryOperatorInput>;
   category?: Maybe<StringQueryOperatorInput>;
   tag?: Maybe<StringQueryOperatorInput>;
-  prevStep?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MarkdownRemarkGroupConnection = {
@@ -2244,16 +2244,13 @@ export type SiteFieldsEnum =
   | 'siteMetadata___version'
   | 'siteMetadata___introduction'
   | 'siteMetadata___siteUrl'
+  | 'siteMetadata___avatar'
   | 'siteMetadata___social___twitter'
   | 'siteMetadata___social___github'
   | 'siteMetadata___social___medium'
   | 'siteMetadata___social___facebook'
   | 'siteMetadata___social___velog'
-  | 'siteMetadata___icon'
-  | 'siteMetadata___thumbnail'
-  | 'siteMetadata___resume___title'
-  | 'siteMetadata___resume___description'
-  | 'siteMetadata___resume___thumbnail'
+  | 'siteMetadata___favicon'
   | 'siteMetadata___keywords'
   | 'siteMetadata___comment___disqusShortName'
   | 'siteMetadata___comment___utterances'
@@ -3048,10 +3045,9 @@ export type SiteSiteMetadata = {
   version?: Maybe<Scalars['String']>;
   introduction?: Maybe<Scalars['String']>;
   siteUrl?: Maybe<Scalars['String']>;
+  avatar?: Maybe<Scalars['String']>;
   social?: Maybe<SiteSiteMetadataSocial>;
-  icon?: Maybe<Scalars['String']>;
-  thumbnail?: Maybe<Scalars['String']>;
-  resume?: Maybe<SiteSiteMetadataResume>;
+  favicon?: Maybe<Scalars['String']>;
   keywords?: Maybe<Array<Maybe<Scalars['String']>>>;
   comment?: Maybe<SiteSiteMetadataComment>;
   configs?: Maybe<SiteSiteMetadataConfigs>;
@@ -3085,27 +3081,13 @@ export type SiteSiteMetadataFilterInput = {
   version?: Maybe<StringQueryOperatorInput>;
   introduction?: Maybe<StringQueryOperatorInput>;
   siteUrl?: Maybe<StringQueryOperatorInput>;
+  avatar?: Maybe<StringQueryOperatorInput>;
   social?: Maybe<SiteSiteMetadataSocialFilterInput>;
-  icon?: Maybe<StringQueryOperatorInput>;
-  thumbnail?: Maybe<StringQueryOperatorInput>;
-  resume?: Maybe<SiteSiteMetadataResumeFilterInput>;
+  favicon?: Maybe<StringQueryOperatorInput>;
   keywords?: Maybe<StringQueryOperatorInput>;
   comment?: Maybe<SiteSiteMetadataCommentFilterInput>;
   configs?: Maybe<SiteSiteMetadataConfigsFilterInput>;
   sponsor?: Maybe<SiteSiteMetadataSponsorFilterInput>;
-};
-
-export type SiteSiteMetadataResume = {
-  __typename?: 'SiteSiteMetadataResume';
-  title?: Maybe<Scalars['String']>;
-  description?: Maybe<Scalars['String']>;
-  thumbnail?: Maybe<Scalars['String']>;
-};
-
-export type SiteSiteMetadataResumeFilterInput = {
-  title?: Maybe<StringQueryOperatorInput>;
-  description?: Maybe<StringQueryOperatorInput>;
-  thumbnail?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SiteSiteMetadataSocial = {

@@ -9,10 +9,16 @@ const useSiteMetaData = () => {
       site {
         siteMetadata {
           title
+          description
+          introduction
           author
           version
+          avatar
           social {
             github
+          }
+          comment {
+            utterances
           }
         }
       }

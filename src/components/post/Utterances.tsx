@@ -1,18 +1,17 @@
 import React, { createRef, useLayoutEffect } from 'react';
-
-const src = 'https://utteranc.es/client.js';
-
-const repo = 'ordidxzero/blog-comments';
+import useSiteMetaData from '../../hooks/useSiteMetaData';
 
 const Utterances: React.FC = () => {
+  const {
+    comment: { utterances: repo },
+  } = useSiteMetaData();
   const containerRef = createRef<HTMLDivElement>();
-
   useLayoutEffect(() => {
     const utterances = document.createElement('script');
 
     const attributes = {
-      src,
       repo,
+      src: 'https://utteranc.es/client.js',
       'issue-term': 'pathname',
       label: 'comment',
       theme: 'github-light',

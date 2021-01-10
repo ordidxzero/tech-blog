@@ -9,6 +9,7 @@ import Footer from '../components/core/footer';
 
 type IPostTemplateProps = ITemplateProps<{
   html: string;
+  excerpt: string;
   title: string;
   tag: string[];
   prevStep: string[];
@@ -17,10 +18,10 @@ type IPostTemplateProps = ITemplateProps<{
 }>;
 
 const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
-  const { html: __html, title, birthTime, category } = props.pageContext;
+  const { html: __html, title, birthTime, category, excerpt } = props.pageContext;
   return (
     <Layout>
-      <SEO title={title} />
+      <SEO title={title} description={excerpt} />
       <div className="post-container w-full h-full lg:max-w-3xl mx-auto mt-12">
         <div className="flex flex-col justify-start items-center mb-20">
           <h1 className="m-0 mb-1 font-bold">{title}</h1>

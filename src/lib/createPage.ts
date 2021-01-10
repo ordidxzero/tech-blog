@@ -9,6 +9,7 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
       allMarkdownRemark {
         nodes {
           html
+          excerpt(pruneLength: 100, truncate: true)
           frontmatter {
             tag
             title
@@ -31,12 +32,13 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
     throw errors;
   }
 
-  data.allMarkdownRemark.nodes.forEach(({ html, frontmatter: { title, path, tag, prevStep, category }, parent }) => {
+  data.allMarkdownRemark.nodes.forEach(({ html, excerpt, frontmatter: { title, path, tag, prevStep, category }, parent }) => {
     const { birthTime } = parent as any;
     return createPage({
       path,
       context: {
         html,
+        excerpt,
         title,
         tag,
         prevStep,

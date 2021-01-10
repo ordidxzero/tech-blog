@@ -15,13 +15,14 @@ type HeaderProps = {
 const AVATAR_URL = 'https://avatars1.githubusercontent.com/u/60772480?s=460&u=c58661ff3f4a27d91ddfd02a2e9607ce37196598&v=4';
 
 const Header = ({ siteTitle = '' }: HeaderProps) => {
-  const [isHome, setIsHome] = useState(window.location.pathname === '/');
+  const pathname = typeof window !== 'undefined' && window.location.pathname === '/';
+  const [isHome, setIsHome] = useState(pathname);
   const [isMobileClient] = useContextState('isMobileClient');
   const [isDarkMode, setIsDarkMode] = useContextState('isDarkMode');
   const [isList, setIsList] = useContextState('isList');
   useEffect(() => {
-    setIsHome(window.location.pathname === '/');
-  }, [window.location.pathname]);
+    setIsHome(pathname);
+  }, [pathname]);
   return (
     <>
       <header className="h-16 fixed z-50 top-0 left-0 right-0 bg-gray-750 flex justify-center">

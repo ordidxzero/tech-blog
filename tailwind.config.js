@@ -1,13 +1,18 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
   important: true,
   purge: ['./src/**/*.{js,jsx,ts,tsx}'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     backgroundColor: theme => ({
       ...theme('colors'),
       'gray-750': '#24292E',
     }),
     extend: {
+      colors: {
+        warmGray: colors.warmGray,
+      },
       spacing: {
         344: '1376px',
         432: '1728px',

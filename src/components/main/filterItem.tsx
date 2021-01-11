@@ -14,12 +14,14 @@ const FilterItem = ({ title, fluid, isSelected, onClick }: FilterItemProps) => {
   return (
     <div
       onClick={onClick}
-      className={`filter-item relative w-16 h-16 rounded-full shadow-lg flex justify-center items-center duration-150 cursor-pointer ${opacity}`}
+      className={`filter-item select-none relative w-16 h-16 rounded-full shadow-lg bg-white dark:bg-warmGray-600 flex justify-center items-center duration-150 cursor-pointer ${opacity}`}
     >
       <div className="w-12">
         <Img fluid={fluid} />
       </div>
-      <div className="absolute h-5 -bottom-6 rounded px-1 bg-gray-200 text-xs text-center duration-150 item-title">{title}</div>
+      <div className="absolute h-5 -bottom-6 rounded px-1 pt-0.5 bg-gray-200 dark:bg-warmGray-800 text-xs text-center duration-150 item-title">
+        <span>{title}</span>
+      </div>
     </div>
   );
 };

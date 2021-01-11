@@ -24,9 +24,9 @@ const Header = ({ siteTitle = '' }: HeaderProps) => {
   }, [pathname]);
   return (
     <>
-      <header className="h-16 fixed z-50 top-0 left-0 right-0 bg-gray-750 flex justify-center">
+      <header className="h-16 fixed z-50 top-0 left-0 right-0 bg-warmGray-900 flex justify-center">
         <div className="base-container flex justify-between items-center">
-          <h1 className="m-0 text-3xl">
+          <h1 className="m-0 text-xl sm:text-3xl">
             <Link to="/" className="text-white no-underline">
               {siteTitle}
             </Link>
@@ -35,7 +35,7 @@ const Header = ({ siteTitle = '' }: HeaderProps) => {
             {!isMobileClient && isHome && (
               <ToggleSwitch state={isList as boolean} setter={setIsList} onIcon={<ListIcon />} offIcon={<GraphIcon />} />
             )}
-            {/* <ToggleSwitch state={isDarkMode as boolean} setter={setIsDarkMode} onIcon={<DarkIcon />} offIcon={<LightIcon />} /> */}
+            <ToggleSwitch state={isDarkMode as boolean} setter={setIsDarkMode} onIcon={<DarkIcon />} offIcon={<LightIcon />} />
             <div className="w-9 h-9 rounded-full flex justify-center items-center overflow-hidden select-none">
               <img src={avatar} alt="avatar" className="m-0" />
             </div>

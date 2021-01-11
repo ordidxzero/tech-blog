@@ -43,6 +43,7 @@ const cytoscapeLayout = {
 
 function useCytoscape() {
   const markdown = useMarkdownData();
+  const [isDarkMode] = useContextState('isDarkMode');
   const resizeTimer = useRef(0);
   const instance = useRef<cytoscape.Core>();
   const cytoscapeRef = useRef(null);
@@ -62,11 +63,11 @@ function useCytoscape() {
     (e: cytoscape.EventObject) => {
       if (filter) return;
       if (instance.current) {
-        setDimStyle(instance.current);
-        setFocusedStyle(e.target);
+        setDimStyle(instance.current, isDarkMode as boolean);
+        setFocusedStyle(e.target, isDarkMode as boolean);
       }
     },
-    [filter],
+    [filter, isDarkMode],
   );
 
   // node에 mouseout 이벤트가 발생했을 때 실행될 핸들러.
@@ -74,9 +75,9 @@ function useCytoscape() {
   const mouseoutHandler = useCallback(() => {
     if (filter) return;
     if (instance.current) {
-      setDefaultStyle(instance.current);
+      setDefaultStyle(instance.current, isDarkMode as boolean);
     }
-  }, [filter]);
+  }, [filter, isDarkMode]);
 
   useEffect(() => {
     // Cytoscape Instance
@@ -110,6 +111,8 @@ function useCytoscape() {
     // Cytoscape Event Listener
     // Event Type Reference : https://js.cytoscape.org/#events
     instance.current.on('mouseover', 'node', mouseoverHandler);
+
+    // instance.current.on('viewport', () => console.log('move'));
 
     instance.current.on('mouseout', 'node', mouseoutHandler);
 
@@ -147,13 +150,13 @@ function useCytoscape() {
   useEffect(() => {
     if (instance.current) {
       // Filter가 적용됐을 때, filteredElements의 스타일을 정한다.
-      setDefaultStyle(instance.current);
+      setDefaultStyle(instance.current, isDarkMode as boolean);
       if (filter !== null && typeof filter === 'string') {
         const filteredElements = instance.current.filter(function (ele) {
           if (ele.data('tag')) return ele.data('tag').includes(filter.toLowerCase());
           return false;
         });
-        setDimStyle(instance.current);
+        setDimStyle(instance.current, isDarkMode as boolean);
         setFilteredStyle(filteredElements);
       }
 
@@ -162,7 +165,7 @@ function useCytoscape() {
       instance.current.on('mouseover', 'node', mouseoverHandler);
       instance.current.on('mouseout', 'node', mouseoutHandler);
     }
-  }, [filter]);
+  }, [filter, isDarkMode]);
 
   return cytoscapeRef;
 }

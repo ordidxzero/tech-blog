@@ -2,8 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+html.dark {
+  @apply bg-warmGray-800;
+}
+
 #gatsby-focus-wrapper {
-  @apply flex flex-col justify-start items-center;
+  @apply flex flex-col justify-start items-center dark:bg-warmGray-800 duration-300;
 }
 
 .base-container {
@@ -16,11 +20,11 @@
 }
 
 .category {
-  @apply border hover:bg-green-400 w-full h-full flex justify-center items-center rounded-md cursor-pointer select-none capitalize duration-150;
+  @apply border hover:bg-green-400 dark:hover:bg-blue-500 w-full h-full flex justify-center items-center rounded-md cursor-pointer select-none capitalize dark:border-warmGray-500 duration-150;
 }
 
 .category-grid {
-  @apply w-full m-0 grid grid-cols-2 place-items-center gap-2 px-2;
+  @apply w-full m-0 grid grid-cols-2 place-items-center gap-2 px-3;
 }
 
 .filter-grid {
@@ -114,18 +118,23 @@ blockquote {
   margin-left: 10px !important;
   border-left: 5px solid #24292e;
   padding: 10px 20px !important;
-  @apply bg-gray-100;
+  @apply bg-gray-100 dark:border-blue-400 dark:bg-warmGray-700 duration-300;
+}
+
+pre {
+  @apply dark:bg-warmGray-900 duration-300;
 }
 
 a:not(.post-block) {
-  @apply text-green-500 hover:underline font-bold;
+  @apply text-green-500 hover:underline font-bold dark:text-blue-400 duration-300;
 }
 
 a.post-block {
-  @apply block mb-4 border-b pb-4;
+  @apply block mb-4 border-b pb-4 dark:border-warmGray-700;
 }
 
 footer,
+.index-box,
 .tag {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
     sans-serif;

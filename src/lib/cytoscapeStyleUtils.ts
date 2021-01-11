@@ -21,10 +21,11 @@ type SingularElement = cytoscape.SingularElementReturnValue;
 type Core = cytoscape.Core;
 
 // Reset the style of all elements.
+// need boolean
 const defaultStyle = {
-  node: (rank: number) => ({
+  node: (rank: number, isDarkMode: boolean) => ({
     'background-color': nodeColor,
-    color: nodeColor,
+    color: isDarkMode ? '#D6D3D1' : nodeColor,
     width: nodeMaxSize * rank + nodeMinSize,
     height: nodeMaxSize * rank + nodeMinSize,
     'font-size': fontMaxSize * rank + fontMinSize,
@@ -39,11 +40,11 @@ const defaultStyle = {
   },
 };
 
-export const setDefaultStyle = (instance: Core) => {
+export const setDefaultStyle = (instance: Core, isDarkMode: boolean) => {
   const pageRank = instance.elements().pageRank({});
   instance.nodes().forEach(target => {
     const rank = pageRank.rank(target);
-    target.style(defaultStyle.node(rank));
+    target.style(defaultStyle.node(rank, isDarkMode));
   });
   instance.edges().forEach(target => {
     target.style(defaultStyle.edge);
@@ -51,16 +52,16 @@ export const setDefaultStyle = (instance: Core) => {
 };
 
 // When the elements are selected or filtered, Apply the dimStyle to all elements
-const dimStyle = {
+const dimStyle = (isDarkMode: boolean) => ({
   'background-color': dimColor,
   'line-color': dimColor,
   'source-arrow-color': dimColor,
-  color: dimColor,
-};
+  color: isDarkMode ? '#D6D3D1' : dimColor,
+});
 
-export const setDimStyle = (instance: Core) => {
+export const setDimStyle = (instance: Core, isDarkMode: boolean) => {
   instance.elements().forEach(target => {
-    target.style(dimStyle);
+    target.style(dimStyle(isDarkMode));
   });
 };
 
@@ -70,10 +71,11 @@ function setElementOpacity(element: SingularElement, degree: number) {
 }
 
 // When the elements are focused, Apply the focusedStyle to the focused element and around elements
-const focusedStyle = {
+// need boolean
+const focusedStyle = (isDarkMode: boolean) => ({
   element: (focusedElement: SingularElement) => ({
     'background-color': nodeActiveColor,
-    color: nodeColor,
+    color: isDarkMode ? '#D6D3D1' : nodeColor,
     width: Math.max(parseFloat(focusedElement.style('width')), nodeActiveSize),
     height: Math.max(parseFloat(focusedElement.style('height')), nodeActiveSize),
     'font-size': Math.max(parseFloat(focusedElement.style('font-size')), fontActiveSize),
@@ -81,7 +83,7 @@ const focusedStyle = {
   }),
   successor: {
     node: {
-      color: nodeColor,
+      color: isDarkMode ? '#D6D3D1' : nodeColor,
       'background-color': successorColor,
       'line-color': successorColor,
       'source-arrow-color': successorColor,
@@ -93,7 +95,7 @@ const focusedStyle = {
   },
   predecessor: {
     node: {
-      color: nodeColor,
+      color: isDarkMode ? '#D6D3D1' : nodeColor,
       'background-color': predecessorsColor,
       'line-color': predecessorsColor,
       'source-arrow-color': predecessorsColor,
@@ -103,27 +105,27 @@ const focusedStyle = {
       'arrow-scale': arrowScale,
     },
   },
-};
+});
 
-export const setFocusedStyle = (focusedElement: SingularElement) => {
+export const setFocusedStyle = (focusedElement: SingularElement, isDarkMode: boolean) => {
   // Focused Element Style
-  focusedElement.style(focusedStyle.element(focusedElement));
+  focusedElement.style(focusedStyle(isDarkMode).element(focusedElement));
 
   // Parent Node and Edge Style
   focusedElement.successors().each(element => {
     if (element.isEdge()) {
-      element.style(focusedStyle.successor.edge);
+      element.style(focusedStyle(isDarkMode).successor.edge);
     }
-    element.style(focusedStyle.successor.node);
+    element.style(focusedStyle(isDarkMode).successor.node);
     setElementOpacity(element, 0.5);
   });
 
   // Child Node and Edge Style
   focusedElement.predecessors().each(element => {
     if (element.isEdge()) {
-      element.style(focusedStyle.predecessor.edge);
+      element.style(focusedStyle(isDarkMode).predecessor.edge);
     }
-    element.style(focusedStyle.predecessor.node);
+    element.style(focusedStyle(isDarkMode).predecessor.node);
     setElementOpacity(element, 0.5);
   });
 

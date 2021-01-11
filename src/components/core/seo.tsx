@@ -8,6 +8,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
+import { useContextState } from '../../lib/context';
 
 type SEOProps = {
   description?: string;
@@ -31,6 +32,7 @@ function SEO({ description = '', lang = 'en', meta = [], title }: SEOProps) {
     `,
   );
 
+  const [isDarkMode] = useContextState('isDarkMode');
   const metaDescription = description || site.siteMetadata.description;
   const defaultTitle = site.siteMetadata?.title;
 
@@ -38,6 +40,7 @@ function SEO({ description = '', lang = 'en', meta = [], title }: SEOProps) {
     <Helmet
       htmlAttributes={{
         lang,
+        class: `${isDarkMode && 'dark'}`,
       }}
       title={title}
       titleTemplate={defaultTitle}

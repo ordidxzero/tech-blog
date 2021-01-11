@@ -16,6 +16,8 @@ export const edgeColor = '#ced6e0';
 // Default Node Color
 export const nodeColor = '#57606f';
 
+export const darkModeLabelColor = '#D6D3D1';
+
 // Selected Node Color
 export const nodeActiveColor = '#FED766';
 

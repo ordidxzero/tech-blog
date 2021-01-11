@@ -14,6 +14,7 @@ import {
   fontMinSize,
   fontMaxSize,
   edgeActiveWidth,
+  darkModeLabelColor,
 } from '../constants/cytoscape.constant';
 
 type Collection = cytoscape.CollectionReturnValue;
@@ -25,7 +26,7 @@ type Core = cytoscape.Core;
 const defaultStyle = {
   node: (rank: number, isDarkMode: boolean) => ({
     'background-color': nodeColor,
-    color: isDarkMode ? '#D6D3D1' : nodeColor,
+    color: isDarkMode ? darkModeLabelColor : nodeColor,
     width: nodeMaxSize * rank + nodeMinSize,
     height: nodeMaxSize * rank + nodeMinSize,
     'font-size': fontMaxSize * rank + fontMinSize,
@@ -56,7 +57,7 @@ const dimStyle = (isDarkMode: boolean) => ({
   'background-color': dimColor,
   'line-color': dimColor,
   'source-arrow-color': dimColor,
-  color: isDarkMode ? '#D6D3D1' : dimColor,
+  color: isDarkMode ? darkModeLabelColor : dimColor,
 });
 
 export const setDimStyle = (instance: Core, isDarkMode: boolean) => {
@@ -75,7 +76,7 @@ function setElementOpacity(element: SingularElement, degree: number) {
 const focusedStyle = (isDarkMode: boolean) => ({
   element: (focusedElement: SingularElement) => ({
     'background-color': nodeActiveColor,
-    color: isDarkMode ? '#D6D3D1' : nodeColor,
+    color: isDarkMode ? darkModeLabelColor : nodeColor,
     width: Math.max(parseFloat(focusedElement.style('width')), nodeActiveSize),
     height: Math.max(parseFloat(focusedElement.style('height')), nodeActiveSize),
     'font-size': Math.max(parseFloat(focusedElement.style('font-size')), fontActiveSize),
@@ -83,7 +84,7 @@ const focusedStyle = (isDarkMode: boolean) => ({
   }),
   successor: {
     node: {
-      color: isDarkMode ? '#D6D3D1' : nodeColor,
+      color: isDarkMode ? darkModeLabelColor : nodeColor,
       'background-color': successorColor,
       'line-color': successorColor,
       'source-arrow-color': successorColor,
@@ -95,7 +96,7 @@ const focusedStyle = (isDarkMode: boolean) => ({
   },
   predecessor: {
     node: {
-      color: isDarkMode ? '#D6D3D1' : nodeColor,
+      color: isDarkMode ? darkModeLabelColor : nodeColor,
       'background-color': predecessorsColor,
       'line-color': predecessorsColor,
       'source-arrow-color': predecessorsColor,
@@ -136,17 +137,17 @@ export const setFocusedStyle = (focusedElement: SingularElement, isDarkMode: boo
 };
 
 // When the elements are filtered, Apply the filteredStyle to the filtered elements
-const filteredStyle = (element: SingularElement) => ({
+const filteredStyle = (element: SingularElement, isDarkMode: boolean) => ({
   'background-color': nodeActiveColor,
-  color: nodeColor,
+  color: isDarkMode ? darkModeLabelColor : nodeColor,
   width: Math.max(parseFloat(element.style('width')), nodeActiveSize),
   height: Math.max(parseFloat(element.style('height')), nodeActiveSize),
   'font-size': Math.max(parseFloat(element.style('font-size')), fontActiveSize),
   opacity: 1,
 });
 
-export const setFilteredStyle = (filteredElements: Collection) => {
+export const setFilteredStyle = (filteredElements: Collection, isDarkMode: boolean) => {
   filteredElements.forEach(target => {
-    target.style(filteredStyle(target));
+    target.style(filteredStyle(target, isDarkMode));
   });
 };

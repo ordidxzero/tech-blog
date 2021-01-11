@@ -157,7 +157,7 @@ function useCytoscape() {
           return false;
         });
         setDimStyle(instance.current, isDarkMode as boolean);
-        setFilteredStyle(filteredElements);
+        setFilteredStyle(filteredElements, isDarkMode as boolean);
       }
 
       instance.current.removeListener('mouseover');

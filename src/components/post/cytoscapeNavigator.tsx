@@ -6,7 +6,7 @@ function CytoscapeNavigator() {
   return (
     <>
       <div
-        className={`fixed z-10 bottom-10 right-10 bg-gray-100 custom-shadow rounded-lg p-2 origin-bottom-right overflow-hidden hidden 2xl:block ${
+        className={`fixed z-10 bottom-10 right-10 bg-gray-100 custom-shadow rounded-lg p-2 origin-bottom-right overflow-hidden hidden 2xl:block dark:bg-warmGray-600 ${
           state === null ? '' : state ? 'activate-navigator' : 'deactivate-navigator'
         }`}
       >

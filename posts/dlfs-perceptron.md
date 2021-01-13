@@ -1,6 +1,7 @@
 ---
 title: '[밑바닥부터 시작하는 딥러닝] 퍼셉트론'
 description: 퍼셉트론 기본 개념에 대해서 알아보았다.
+date: 2021-01-01
 path: dlfs-perceptron
 category:
   - theory

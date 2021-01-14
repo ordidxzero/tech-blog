@@ -64,4 +64,8 @@ export const formattedNameList: ExtraData[] = [
     name: 'AI',
     alias: ['ai', 'ml', 'dl', 'machine-learning', 'deep-learning'],
   },
+  {
+    name: 'Rust',
+    alias: ['rust'],
+  },
 ];

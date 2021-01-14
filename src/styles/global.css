@@ -121,7 +121,7 @@ blockquote {
   @apply bg-gray-100 dark:border-blue-400 dark:bg-warmGray-700 duration-300;
 }
 
-pre code,
+pre,
 code {
   @apply dark:bg-warmGray-900 duration-300;
 }

@@ -1,8 +1,6 @@
 ---
-title: '[밑바닥부터 시작하는 딥러닝] 신경망'
-description: 신경망 기본 개념에 대해서 알아보았다.
+title: '신경망'
 date: 2021-01-02
-path: dlfs-neuralnet
 prevStep:
   - dlfs-perceptron
 category:

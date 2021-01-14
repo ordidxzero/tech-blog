@@ -13,14 +13,14 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
           frontmatter {
             tag
             title
-            path
             prevStep
             tag
             category
           }
           parent {
             ... on File {
-              birthTime(formatString: "YYYY-MM-DD")
+              birthtime
+              name
             }
           }
         }
@@ -32,10 +32,10 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
     throw errors;
   }
 
-  data.allMarkdownRemark.nodes.forEach(({ html, excerpt, frontmatter: { title, path, tag, prevStep, category }, parent }) => {
-    const { birthTime } = parent as any;
+  data.allMarkdownRemark.nodes.forEach(({ html, excerpt, frontmatter: { title, tag, prevStep, category }, parent }) => {
+    const { birthtime, name } = parent as any;
     return createPage({
-      path,
+      path: name,
       context: {
         html,
         excerpt,
@@ -43,7 +43,7 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
         tag,
         prevStep,
         category,
-        birthTime,
+        birthTime: birthtime,
       },
       component: resolve(__dirname, '../templates/PostTemplate.tsx'),
     });

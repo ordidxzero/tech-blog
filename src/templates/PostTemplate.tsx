@@ -19,6 +19,7 @@ type IPostTemplateProps = ITemplateProps<{
 
 const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
   const { html: __html, title, birthTime, category, excerpt } = props.pageContext;
+  const date = birthTime.split('T')[0];
   return (
     <Layout>
       <SEO title={title} description={excerpt} />
@@ -26,7 +27,7 @@ const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
         <div className="flex flex-col justify-start items-center mb-20">
           <h1 className="m-0 mb-1 font-bold">{title}</h1>
           <div className="post-info text-xs flex justify-center items-center">
-            <span>{birthTime}</span>
+            <span>{date}</span>
             {category &&
               category.map(item => (
                 <span key={item} className="capitalize">

@@ -1,8 +1,6 @@
 ---
 title: 'Rust 개발 환경 구축하기 (for macOS)'
-description: 맥OS에서 러스트 개발 환경 세팅하는 방법.
 date: 2021-01-13
-path: rust-dev-env-for-macOS
 category:
   - project
 tag:

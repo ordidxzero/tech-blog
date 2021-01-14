@@ -37,7 +37,7 @@ const edgeStyle: cytoscape.Stylesheet = {
 const cytoscapeLayout = {
   name: 'cose-bilkent',
   animate: false,
-  tile: true,
+  random: true,
   gravityRangeCompound: 1.2,
 };
 

@@ -1,8 +1,6 @@
 ---
 title: 'Rust로 cli 앱 만들기 - 1'
-description: Rust로 cli 앱 만들기 - 1
 date: 2021-01-13
-path: rust-cli-app-1
 prevStep:
   - rust-dev-env-for-macOS
 category:

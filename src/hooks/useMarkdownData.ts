@@ -9,13 +9,13 @@ function useMarkdownData() {
           html
           parent {
             ... on File {
-              birthtime
               name
             }
           }
           frontmatter {
             tag
             title
+            birth
             prevStep
             tag
             category

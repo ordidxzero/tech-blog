@@ -3,15 +3,16 @@ import { MarkdownRemark } from '../../@types/graphql-types';
 import useMarkdownData from '../../hooks/useMarkdownData';
 import PostBlock from './PostBlock';
 
-const getTime = (parent: any): number => {
-  // Node에 birthtime이 없어서 불가피하게 parent의 타입을 any로 바꿈
-  const { birthtime } = parent;
-  const date = new Date(birthtime);
+const getTime = (birth: any): number => {
+  const date = new Date(birth);
   return date.getTime();
 };
 
-const sortByTime = ({ parent: firstParent }: MarkdownRemark, { parent: secondParent }: MarkdownRemark) => {
-  return getTime(secondParent) - getTime(firstParent);
+export const sortByTime = (
+  { frontmatter: { birth: firstBirth } }: MarkdownRemark,
+  { frontmatter: { birth: secondBirth } }: MarkdownRemark,
+) => {
+  return getTime(secondBirth) - getTime(firstBirth);
 };
 
 const PostList = () => {

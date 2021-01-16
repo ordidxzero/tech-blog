@@ -1,6 +1,6 @@
 ---
 title: '신경망'
-date: 2021-01-02
+birth: '2021-01-02'
 prevStep:
   - dlfs-perceptron
 category:

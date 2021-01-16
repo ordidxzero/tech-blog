@@ -714,12 +714,10 @@ export type FileFieldsEnum =
   | 'internal___type'
   | 'childMarkdownRemark___id'
   | 'childMarkdownRemark___frontmatter___title'
-  | 'childMarkdownRemark___frontmatter___description'
-  | 'childMarkdownRemark___frontmatter___date'
-  | 'childMarkdownRemark___frontmatter___path'
-  | 'childMarkdownRemark___frontmatter___prevStep'
+  | 'childMarkdownRemark___frontmatter___birth'
   | 'childMarkdownRemark___frontmatter___category'
   | 'childMarkdownRemark___frontmatter___tag'
+  | 'childMarkdownRemark___frontmatter___prevStep'
   | 'childMarkdownRemark___excerpt'
   | 'childMarkdownRemark___rawMarkdownBody'
   | 'childMarkdownRemark___fileAbsolutePath'
@@ -1541,12 +1539,10 @@ export type MarkdownRemarkEdge = {
 export type MarkdownRemarkFieldsEnum = 
   | 'id'
   | 'frontmatter___title'
-  | 'frontmatter___description'
-  | 'frontmatter___date'
-  | 'frontmatter___path'
-  | 'frontmatter___prevStep'
+  | 'frontmatter___birth'
   | 'frontmatter___category'
   | 'frontmatter___tag'
+  | 'frontmatter___prevStep'
   | 'excerpt'
   | 'rawMarkdownBody'
   | 'fileAbsolutePath'
@@ -1669,16 +1665,14 @@ export type MarkdownRemarkFilterInput = {
 export type MarkdownRemarkFrontmatter = {
   __typename?: 'MarkdownRemarkFrontmatter';
   title?: Maybe<Scalars['String']>;
-  description?: Maybe<Scalars['String']>;
-  date?: Maybe<Scalars['Date']>;
-  path?: Maybe<Scalars['String']>;
-  prevStep?: Maybe<Array<Maybe<Scalars['String']>>>;
+  birth?: Maybe<Scalars['Date']>;
   category?: Maybe<Array<Maybe<Scalars['String']>>>;
   tag?: Maybe<Array<Maybe<Scalars['String']>>>;
+  prevStep?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 
-export type MarkdownRemarkFrontmatterDateArgs = {
+export type MarkdownRemarkFrontmatterBirthArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
@@ -1687,12 +1681,10 @@ export type MarkdownRemarkFrontmatterDateArgs = {
 
 export type MarkdownRemarkFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
-  description?: Maybe<StringQueryOperatorInput>;
-  date?: Maybe<DateQueryOperatorInput>;
-  path?: Maybe<StringQueryOperatorInput>;
-  prevStep?: Maybe<StringQueryOperatorInput>;
+  birth?: Maybe<DateQueryOperatorInput>;
   category?: Maybe<StringQueryOperatorInput>;
   tag?: Maybe<StringQueryOperatorInput>;
+  prevStep?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MarkdownRemarkGroupConnection = {

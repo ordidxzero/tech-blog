@@ -1,6 +1,6 @@
 ---
 title: '퍼셉트론'
-date: 2021-01-01
+birth: '2021-01-01'
 category:
   - theory
 tag:

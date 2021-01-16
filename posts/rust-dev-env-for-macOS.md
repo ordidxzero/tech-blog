@@ -1,6 +1,6 @@
 ---
 title: 'Rust 개발 환경 구축하기 (for macOS)'
-date: 2021-01-13
+birth: '2021-01-13'
 category:
   - project
 tag:

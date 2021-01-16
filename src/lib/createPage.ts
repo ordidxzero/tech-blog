@@ -1,6 +1,7 @@
 import { resolve } from 'path';
 import { CreatePagesArgs } from 'gatsby';
 import { Query } from '../@types/graphql-types';
+import { sortByTime } from '../components/main/PostList';
 
 export async function createPages({ actions, graphql }: CreatePagesArgs) {
   const { createPage } = actions;
@@ -14,12 +15,12 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
             tag
             title
             prevStep
+            birth
             tag
             category
           }
           parent {
             ... on File {
-              birthtime
               name
             }
           }
@@ -32,8 +33,8 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
     throw errors;
   }
 
-  data.allMarkdownRemark.nodes.forEach(({ html, excerpt, frontmatter: { title, tag, prevStep, category }, parent }) => {
-    const { birthtime, name } = parent as any;
+  data.allMarkdownRemark.nodes.forEach(({ html, excerpt, frontmatter: { title, birth, tag, prevStep, category }, parent }) => {
+    const { name } = parent as any;
     return createPage({
       path: name,
       context: {
@@ -43,7 +44,7 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
         tag,
         prevStep,
         category,
-        birthTime: birthtime,
+        birthTime: birth,
       },
       component: resolve(__dirname, '../templates/PostTemplate.tsx'),
     });

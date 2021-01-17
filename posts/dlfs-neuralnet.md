@@ -33,15 +33,15 @@ y =
    1 \enspace (b + x_1w_1 + x_2w_2 \gt 0 )
 \end{cases}
 \enspace
-···\enspace식①
+···\enspace식1
 $$
 
-식①에 x가 0을 넘으면 1을 출력하고 그렇지 않으면 0을 출력하는 함수 h(x)를 추가해보자. 그럼 아래처럼 표현이 가능하다.
+식1에 x가 0을 넘으면 1을 출력하고 그렇지 않으면 0을 출력하는 함수 h(x)를 추가해보자. 그럼 아래처럼 표현이 가능하다.
 
 $$
 y = h(b + x_1w_1 + x_2w_2)
 \enspace
-···\enspace식②
+···\enspace식2
 $$
 
 $$
@@ -51,7 +51,7 @@ h(x) =
    1 \enspace (x \gt 0 )
 \end{cases}
 \enspace
-···\enspace식③
+···\enspace식3
 $$
 
 입력 신호의 총합이 함수 h(x)를 거쳐 y를 출력하고 있다.
@@ -63,13 +63,13 @@ $$
 $$
 a = b + x_1w_1 + x_2w_2
 \enspace
-···\enspace식④
+···\enspace식4
 $$
 
 $$
 y = h(a)
 \enspace
-···\enspace식⑤
+···\enspace식5
 $$
 
 그림으로 나타내면 아래와 같다.
@@ -87,7 +87,7 @@ $$
 $$
 h(x) = \frac{1}{1+e^{-x}}
 \enspace
-···\enspace식⑥
+···\enspace식6
 $$
 
 ## ReLU 함수
@@ -99,7 +99,7 @@ h(x) =
    0 \enspace (x \le 0 )
 \end{cases}
 \enspace
-···\enspace식⑦
+···\enspace식7
 $$
 
 퍼셉트론과 신경망의 주된 차이는 활성화 함수뿐이다.
@@ -145,7 +145,7 @@ $$
    x_1 & x_2
 \end{pmatrix}
 \enspace
-●
+\cdot
 \enspace
 \begin{pmatrix}
    1 & 3 & 5 \\

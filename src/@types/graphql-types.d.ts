@@ -715,9 +715,9 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___id'
   | 'childMarkdownRemark___frontmatter___title'
   | 'childMarkdownRemark___frontmatter___birth'
+  | 'childMarkdownRemark___frontmatter___prevStep'
   | 'childMarkdownRemark___frontmatter___category'
   | 'childMarkdownRemark___frontmatter___tag'
-  | 'childMarkdownRemark___frontmatter___prevStep'
   | 'childMarkdownRemark___excerpt'
   | 'childMarkdownRemark___rawMarkdownBody'
   | 'childMarkdownRemark___fileAbsolutePath'
@@ -1540,9 +1540,9 @@ export type MarkdownRemarkFieldsEnum =
   | 'id'
   | 'frontmatter___title'
   | 'frontmatter___birth'
+  | 'frontmatter___prevStep'
   | 'frontmatter___category'
   | 'frontmatter___tag'
-  | 'frontmatter___prevStep'
   | 'excerpt'
   | 'rawMarkdownBody'
   | 'fileAbsolutePath'
@@ -1666,9 +1666,9 @@ export type MarkdownRemarkFrontmatter = {
   __typename?: 'MarkdownRemarkFrontmatter';
   title?: Maybe<Scalars['String']>;
   birth?: Maybe<Scalars['Date']>;
+  prevStep?: Maybe<Array<Maybe<Scalars['String']>>>;
   category?: Maybe<Array<Maybe<Scalars['String']>>>;
   tag?: Maybe<Array<Maybe<Scalars['String']>>>;
-  prevStep?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 
@@ -1682,9 +1682,9 @@ export type MarkdownRemarkFrontmatterBirthArgs = {
 export type MarkdownRemarkFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
   birth?: Maybe<DateQueryOperatorInput>;
+  prevStep?: Maybe<StringQueryOperatorInput>;
   category?: Maybe<StringQueryOperatorInput>;
   tag?: Maybe<StringQueryOperatorInput>;
-  prevStep?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MarkdownRemarkGroupConnection = {

@@ -118,16 +118,20 @@ blockquote {
   margin-left: 10px !important;
   border-left: 5px solid #24292e;
   padding: 10px 20px !important;
-  @apply bg-gray-100 dark:border-blue-400 dark:bg-warmGray-700 duration-300;
+  @apply bg-gray-100 border-blue-400 dark:bg-warmGray-700 duration-150;
 }
 
 pre,
 code {
-  @apply dark:bg-warmGray-900 duration-300;
+  @apply dark:bg-warmGray-900 duration-150;
+}
+
+pre code {
+  font-size: 0.65rem !important;
 }
 
 a:not(.post-block) {
-  @apply text-green-500 hover:underline font-bold dark:text-blue-400 duration-300;
+  @apply text-green-500 hover:underline font-bold dark:text-blue-400 duration-150;
 }
 
 a.post-block {

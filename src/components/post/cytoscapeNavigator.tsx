@@ -13,7 +13,7 @@ function CytoscapeNavigator() {
         <Cytoscape className="rounded-lg bg-white" />
       </div>
       <div
-        className={`fixed hidden z-50 justify-center items-center bottom-4 right-4 w-14 h-14 rounded-full custom-shadow cursor-pointer 2xl:flex duration-150 ${
+        className={`fixed hidden z-50 justify-center items-center bottom-4 right-4 w-14 h-14 rounded-full custom-shadow cursor-pointer xl:flex duration-150 ${
           state ? 'bg-red-500' : 'bg-green-500'
         }`}
         onClick={() => setState(state === null ? true : !state)}

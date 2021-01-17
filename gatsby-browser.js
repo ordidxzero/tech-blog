@@ -8,5 +8,7 @@
 import React from 'react';
 import './src/styles/global.css';
 import { ContextProvider } from './src/lib/context';
+import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
+deckDeckGoHighlightElement();
 
 export const wrapRootElement = ({ element }) => <ContextProvider>{element}</ContextProvider>;

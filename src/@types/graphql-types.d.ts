@@ -715,9 +715,9 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___id'
   | 'childMarkdownRemark___frontmatter___title'
   | 'childMarkdownRemark___frontmatter___birth'
-  | 'childMarkdownRemark___frontmatter___prevStep'
   | 'childMarkdownRemark___frontmatter___category'
   | 'childMarkdownRemark___frontmatter___tag'
+  | 'childMarkdownRemark___frontmatter___prevStep'
   | 'childMarkdownRemark___excerpt'
   | 'childMarkdownRemark___rawMarkdownBody'
   | 'childMarkdownRemark___fileAbsolutePath'
@@ -1540,9 +1540,9 @@ export type MarkdownRemarkFieldsEnum =
   | 'id'
   | 'frontmatter___title'
   | 'frontmatter___birth'
-  | 'frontmatter___prevStep'
   | 'frontmatter___category'
   | 'frontmatter___tag'
+  | 'frontmatter___prevStep'
   | 'excerpt'
   | 'rawMarkdownBody'
   | 'fileAbsolutePath'
@@ -1666,9 +1666,9 @@ export type MarkdownRemarkFrontmatter = {
   __typename?: 'MarkdownRemarkFrontmatter';
   title?: Maybe<Scalars['String']>;
   birth?: Maybe<Scalars['Date']>;
-  prevStep?: Maybe<Array<Maybe<Scalars['String']>>>;
   category?: Maybe<Array<Maybe<Scalars['String']>>>;
   tag?: Maybe<Array<Maybe<Scalars['String']>>>;
+  prevStep?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 
@@ -1682,9 +1682,9 @@ export type MarkdownRemarkFrontmatterBirthArgs = {
 export type MarkdownRemarkFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
   birth?: Maybe<DateQueryOperatorInput>;
-  prevStep?: Maybe<StringQueryOperatorInput>;
   category?: Maybe<StringQueryOperatorInput>;
   tag?: Maybe<StringQueryOperatorInput>;
+  prevStep?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MarkdownRemarkGroupConnection = {
@@ -2612,8 +2612,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___dest'
   | 'pluginCreator___pluginOptions___strict'
-  | 'pluginCreator___pluginOptions___terminal'
-  | 'pluginCreator___pluginOptions___theme'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___nodeAPIs'
   | 'pluginCreator___browserAPIs'
@@ -2811,8 +2809,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___plugins___name'
   | 'pluginOptions___plugins___version'
   | 'pluginOptions___plugins___pluginOptions___strict'
-  | 'pluginOptions___plugins___pluginOptions___terminal'
-  | 'pluginOptions___plugins___pluginOptions___theme'
   | 'pluginOptions___plugins___pluginFilepath'
   | 'pluginOptions___name'
   | 'pluginOptions___path'
@@ -2837,8 +2833,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___allExtensions'
   | 'pluginOptions___dest'
   | 'pluginOptions___strict'
-  | 'pluginOptions___terminal'
-  | 'pluginOptions___theme'
   | 'pluginOptions___pathCheck'
   | 'nodeAPIs'
   | 'browserAPIs'
@@ -2982,8 +2976,6 @@ export type SitePluginPluginOptions = {
   allExtensions?: Maybe<Scalars['Boolean']>;
   dest?: Maybe<Scalars['String']>;
   strict?: Maybe<Scalars['String']>;
-  terminal?: Maybe<Scalars['String']>;
-  theme?: Maybe<Scalars['String']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
 };
 
@@ -3012,8 +3004,6 @@ export type SitePluginPluginOptionsFilterInput = {
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   dest?: Maybe<StringQueryOperatorInput>;
   strict?: Maybe<StringQueryOperatorInput>;
-  terminal?: Maybe<StringQueryOperatorInput>;
-  theme?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
 };
 
@@ -3043,14 +3033,10 @@ export type SitePluginPluginOptionsPluginsFilterListInput = {
 export type SitePluginPluginOptionsPluginsPluginOptions = {
   __typename?: 'SitePluginPluginOptionsPluginsPluginOptions';
   strict?: Maybe<Scalars['String']>;
-  terminal?: Maybe<Scalars['String']>;
-  theme?: Maybe<Scalars['String']>;
 };
 
 export type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
   strict?: Maybe<StringQueryOperatorInput>;
-  terminal?: Maybe<StringQueryOperatorInput>;
-  theme?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginSortInput = {

@@ -340,6 +340,12 @@ h6 {
   font-size: 0.78405rem;
   line-height: 1.1;
 }
+h1:not(:first-of-type) {
+  margin-top: 50px;
+}
+h2 {
+  margin-top: 30px;
+}
 hgroup {
   margin-left: 0;
   margin-right: 0;
@@ -361,6 +367,7 @@ ul {
   margin-bottom: 1.45rem;
   list-style-position: outside;
   list-style-image: none;
+  list-style: disc;
 }
 ol {
   margin-left: 1.45rem;

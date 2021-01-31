@@ -4,6 +4,7 @@
 
 - [ ] cytoscape을 움직였을 때 center로 이동하게 하는 버튼을 생성할 것
 - [ ] random하게 cytoscape navigator의 스타일에 버그가 생김
+- [ ] darkMode를 localStorage에 저장할 수 있을까?
 - [x] DarkMode 적용하기
 - [x] Network graph <-> List 전환 가능하도록 할 것
   - [x] Mobile은 무조건 List

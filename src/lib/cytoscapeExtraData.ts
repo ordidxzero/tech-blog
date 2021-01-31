@@ -68,4 +68,12 @@ export const formattedNameList: ExtraData[] = [
     name: 'Rust',
     alias: ['rust'],
   },
+  {
+    name: 'Programming',
+    alias: ['programming', 'coding'],
+  },
+  {
+    name: 'CS',
+    alias: ['cs', 'computer science', 'c.s'],
+  },
 ];

@@ -4,7 +4,7 @@ birth: '2021-02-07'
 category:
   - project
 tag:
-  - react
+  - reactjs
 ---
 
 React Native와 Firebase를 이용하여 iOS용 랜덤 채팅앱을 만드는 프로젝트를 시작했다.

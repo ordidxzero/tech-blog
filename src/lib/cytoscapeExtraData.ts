@@ -26,7 +26,7 @@ export const formattedNameList: ExtraData[] = [
   },
   {
     name: 'ReactJS',
-    alias: ['react', 'reactjs'],
+    alias: ['react', 'reactjs', 'react-native'],
   },
   {
     name: 'GraphQL',
@@ -74,6 +74,10 @@ export const formattedNameList: ExtraData[] = [
   },
   {
     name: 'CS',
-    alias: ['cs', 'computer science', 'c.s'],
+    alias: ['cs', 'computer-science', 'c.s'],
+  },
+  {
+    name: 'Firebase',
+    alias: ['firebase'],
   },
 ];

@@ -1,6 +1,8 @@
 ---
 title: 'RN으로 랜덤 채팅 앱 만들기 - 스크린 정하기'
 birth: '2021-02-10'
+prevStep:
+  - rn-random-chat-dev-env
 category:
   - project
 tag:

@@ -1,5 +1,5 @@
 ---
-title: 'NestJS 기초 개념'
+title: '[NestJS] 기초 개념'
 birth: '2021-01-27'
 category:
   - project
@@ -115,4 +115,17 @@ export class AppService {
 }
 ```
 
-위와 같이 메소드를 정의하면 Controller에서 사용할 수 있다.
+위와 같이 메소드를 정의하고 `AppModule`에서 provider로 등록을 하면 Controller에서 사용할 수 있다.
+
+```javascript
+import { Module } from '@nestjs/common';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+
+@Module({
+  imports: [],
+  controllers: [AppController],
+  providers: [AppService],
+})
+export class AppModule {}
+```

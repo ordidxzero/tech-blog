@@ -3,7 +3,7 @@ import React from 'react';
 const GraphIcon = () => {
   return (
     <div className="w-4 h-4 cursor-pointer">
-      <img src="https://www.flaticon.com/svg/static/icons/svg/681/681508.svg" />
+      <img src="https://cdn-icons-png.flaticon.com/512/957/957868.png" />
     </div>
   );
 };
